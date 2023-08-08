@@ -1,0 +1,6649 @@
+type AbsentRequestType {
+  """"""
+  absentReason: String!
+
+  """"""
+  dateAbsent: DateTime!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  id: ID!
+
+  """"""
+  student: StudentType!
+
+  """"""
+  type: String!
+}
+
+type AddAuditionDetail {
+  success: Boolean
+}
+
+type AddInventoryOrderDetails {
+  success: Int
+}
+
+type AdditionalOrder {
+  message: String
+  success: Boolean
+}
+
+type AdditionalReceive {
+  success: Boolean
+}
+
+input AdditionalReceiveInputType {
+  id: Int
+  quantityAdditionalReceived: Int
+}
+
+input AddressInputType {
+  address: String
+  detailAddress: String
+  name: String
+  phone: String
+  receiver: String
+  userId: Int
+  zipCode: String
+}
+
+type AddressType {
+  """"""
+  address: String!
+
+  """"""
+  default: Boolean!
+
+  """"""
+  deliveryMemo: String
+
+  """"""
+  detailAddress: String
+
+  """"""
+  email: String
+
+  """"""
+  id: ID!
+
+  """"""
+  isActive: Boolean!
+  isDefault: Boolean
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  name: String!
+
+  """"""
+  phone: String!
+
+  """"""
+  receiver: String!
+
+  """"""
+  user: UserNode!
+
+  """"""
+  zipCode: String
+}
+
+type AddressZipCodeType {
+  children: [AddressZipCodeType]
+
+  """"""
+  code: String!
+
+  """"""
+  couponmasterissuehistorySet: [CouponMasterIssueHistoryType!]!
+
+  """"""
+  id: ID!
+
+  """"""
+  parent: AddressZipCodeType
+
+  """"""
+  siDo: String!
+
+  """"""
+  siGunGu: String
+
+  """"""
+  zipCodeEnd: String!
+
+  """"""
+  zipCodeStart: String!
+}
+
+type AddressesType {
+  addresses: [AddressType]
+  totalCount: Int
+}
+
+type AgenciesStatisticsConnection {
+  """Contains the nodes in this connection."""
+  edges: [AgenciesStatisticsEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+"""A Relay edge containing a `AgenciesStatistics` and its cursor."""
+type AgenciesStatisticsEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: AgenciesStatisticsType
+  other: String
+}
+
+type AgenciesStatisticsType implements Node {
+  agencyName: String
+
+  """The ID of the object."""
+  id: ID!
+  value: FirstInnerItem
+}
+
+type AgencyCalculateNode implements Node {
+  """"""
+  agency: AgencyNode!
+
+  """"""
+  agencyTotalSell: Int!
+  calculationId: Int
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateFrom: DateTime!
+
+  """"""
+  dateTo: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """The ID of the object."""
+  id: ID!
+  netProfit: Int
+
+  """"""
+  pricePlatform: Int!
+
+  """"""
+  priceProfit: Int!
+
+  """"""
+  state: String!
+}
+
+type AgencyCalculateNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [AgencyCalculateNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalNetProfit: Int
+  totalPricePlatform: Int
+  totalProfit: Int
+  totalSell: Int
+}
+
+"""A Relay edge containing a `AgencyCalculateNode` and its cursor."""
+type AgencyCalculateNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: AgencyCalculateNode
+}
+
+input AgencyInputType {
+  address: String
+  businessRegistrationCertificate: Upload
+  businessRegistrationNumber: String
+  detailAddress: String
+  email: String
+  id: Int
+  memo: String
+  name: String
+  region: String
+  user: UserInputType
+  zipCode: String
+}
+
+type AgencyNode implements Node {
+  """"""
+  address: String
+
+  """"""
+  agencyCalculate(after: String, agency_Name: String, before: String, dateFrom_Gte: DateTime, dateTo_Lte: DateTime, first: Int, last: Int, offset: Int): AgencyCalculateNodeConnection!
+  agencyId: Int
+  businessRegistrationCertificate: String
+
+  """"""
+  businessRegistrationNumber: String
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  detailAddress: String
+
+  """"""
+  email: String
+
+  """"""
+  gyms(after: String, agencyId: ID, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, membership_Name: String, name_Icontains: String, offset: Int): GymNodeConnection!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  memo: String
+
+  """"""
+  name: String!
+
+  """"""
+  region: String
+
+  """"""
+  user: UserNode!
+
+  """"""
+  zipCode: String
+}
+
+type AgencyNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [AgencyNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `AgencyNode` and its cursor."""
+type AgencyNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: AgencyNode
+}
+
+type AgencyType {
+  """"""
+  address: String
+
+  """"""
+  agencyCalculate(after: String, agency_Name: String, before: String, dateFrom_Gte: DateTime, dateTo_Lte: DateTime, first: Int, last: Int, offset: Int): AgencyCalculateNodeConnection!
+
+  """"""
+  businessRegistrationCertificate: String
+
+  """"""
+  businessRegistrationNumber: String
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  detailAddress: String
+
+  """"""
+  email: String
+
+  """"""
+  gyms(after: String, agencyId: ID, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, membership_Name: String, name_Icontains: String, offset: Int): GymNodeConnection!
+
+  """"""
+  id: ID!
+
+  """"""
+  memo: String
+
+  """"""
+  name: String!
+
+  """"""
+  region: String
+
+  """"""
+  user: UserNode!
+
+  """"""
+  zipCode: String
+}
+
+type AssignWork {
+  notApplicable: Boolean
+  success: Boolean
+}
+
+type AttendanceDetailType {
+  """"""
+  absentReason: String
+
+  """"""
+  attendanceMaster: AttendanceMasterNode!
+
+  """"""
+  dateAttended: DateTime
+
+  """"""
+  id: ID!
+
+  """"""
+  student: StudentType!
+
+  """"""
+  type: String
+}
+
+type AttendanceForStudent {
+  alreadyAttended: Boolean
+  success: Boolean
+  type: String
+}
+
+type AttendanceMasterNode implements Node {
+  """"""
+  attendanceDetails: [AttendanceDetailType!]!
+  attendanceMasterAbsent: Int
+  attendanceMasterAll: Int
+  attendanceMasterId: Int
+  attendanceMasterIn: Int
+  attendanceMasterLate: Int
+  attendanceMasterOtherClass: Int
+  attendanceMasterOut: Int
+
+  """"""
+  classDetail: ClassDetailType!
+
+  """"""
+  classMaster: ClassMasterType!
+
+  """"""
+  date: Date!
+  details: [AttendanceDetailType]
+
+  """"""
+  gym: GymNode!
+
+  """The ID of the object."""
+  id: ID!
+  myChildrenDetails: [AttendanceDetailType]
+}
+
+type AttendanceMasterNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [AttendanceMasterNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `AttendanceMasterNode` and its cursor."""
+type AttendanceMasterNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: AttendanceMasterNode
+}
+
+type AttendanceType {
+  """"""
+  absentReason: String
+
+  """"""
+  attendanceMaster: AttendanceMasterNode!
+
+  """"""
+  dateAttended: DateTime
+
+  """"""
+  id: ID!
+
+  """"""
+  student: StudentType!
+
+  """"""
+  type: String
+}
+
+type AuditionDetailConnection {
+  """Contains the nodes in this connection."""
+  edges: [AuditionDetailEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+}
+
+"""A Relay edge containing a `AuditionDetail` and its cursor."""
+type AuditionDetailEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: AuditionDetailType
+}
+
+type AuditionDetailPass {
+  detail: AuditionDetailType
+  success: Boolean
+}
+
+type AuditionDetailType {
+  """"""
+  auditionMaster: AuditionMasterType!
+
+  """"""
+  didPass: Boolean
+
+  """"""
+  id: ID!
+
+  """"""
+  memo: String
+
+  """"""
+  student: StudentType!
+}
+
+input AuditionMasterInputType {
+  currentLevel: String
+  nextLevel: String
+}
+
+type AuditionMasterNode implements Node {
+  """"""
+  auditionDetails: [AuditionDetailType!]!
+  auditionMasterId: Int
+
+  """"""
+  currentLevel: LevelType!
+
+  """"""
+  dateAudition: Date!
+  details: [AuditionDetailType]
+
+  """"""
+  estimatedAlarmDate: DateTime
+
+  """"""
+  gym: GymNode!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+  myChildrenDetails: [AuditionDetailType]
+
+  """"""
+  nextLevel: LevelType!
+
+  """"""
+  state: String!
+}
+
+type AuditionMasterNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [AuditionMasterNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `AuditionMasterNode` and its cursor."""
+type AuditionMasterNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: AuditionMasterNode
+}
+
+type AuditionMasterPass {
+  success: Boolean
+}
+
+type AuditionMasterType {
+  """"""
+  auditionDetails: [AuditionDetailType!]!
+
+  """"""
+  currentLevel: LevelType!
+
+  """"""
+  dateAudition: Date!
+
+  """"""
+  estimatedAlarmDate: DateTime
+
+  """"""
+  gym: GymNode!
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  nextLevel: LevelType!
+
+  """"""
+  state: String!
+}
+
+type BankAccountType {
+  """"""
+  accountNo: String!
+
+  """"""
+  bankName: String!
+
+  """"""
+  id: ID!
+
+  """"""
+  isActive: Boolean!
+
+  """"""
+  isDefault: Boolean!
+
+  """"""
+  ownerName: String!
+}
+
+input BankInputType {
+  accountNo: String
+  bankName: String
+  id: Int
+  isActive: Boolean
+  isDefault: Boolean
+  ownerName: String
+}
+
+input BannerInputType {
+  file: Upload
+  id: Int
+  name: String
+  order: Int
+}
+
+type BannerType {
+  """"""
+  id: ID!
+  image: String
+
+  """"""
+  name: String!
+
+  """"""
+  order: Int!
+}
+
+input BrandInputType {
+  id: Int
+  name: String!
+  order: Int = -1
+}
+
+type BrandType {
+  """"""
+  id: ID!
+
+  """"""
+  logo: String
+
+  """"""
+  name: String!
+
+  """"""
+  order: Int!
+  productMasters: [ProductMasterType]
+
+  """"""
+  products(after: String, before: String, brand_Name: String, category_Name: String, first: Int, last: Int, name_Icontains: String, offset: Int, orderdetail_OrderMaster_UserId: ID, state: String, subCategory_Name: String): ProductMasterNodeConnection!
+}
+
+type BulkChargeSmarterMoney {
+  successCount: Int
+}
+
+type BundleDelivery {
+  success: Boolean
+}
+
+type CancelEasyOrder {
+  success: Boolean
+}
+
+type CancelOrder {
+  message: String!
+  success: Boolean!
+}
+
+type CancelOrderRequestType {
+  """"""
+  csRequest: CsRequestType
+  csRequestId: Int
+
+  """"""
+  csRequestNumber: String
+
+  """"""
+  dateCompleted: DateTime
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  gymName: String!
+
+  """"""
+  id: ID!
+
+  """"""
+  isWithoutDeposit: Boolean!
+
+  """"""
+  orderMaster: OrderMasterNode!
+  orderMasterId: Int
+
+  """"""
+  orderNumber: String!
+
+  """"""
+  priceDelivery: Int!
+
+  """"""
+  priceProducts: Int!
+
+  """"""
+  priceTotal: Int!
+
+  """"""
+  priceWorks: Int!
+
+  """"""
+  reason: String
+
+  """"""
+  state: String!
+}
+
+type CancelOrderRequestsType {
+  cancelOrderRequests: [CancelOrderRequestType]
+  totalCount: Int
+}
+
+type CancelPayment {
+  success: Boolean
+}
+
+type CancelStudent {
+  message: String
+  success: Boolean
+}
+
+input CategoryInputType {
+  children: [CategoryInputType]
+  depth: Int
+  id: Int
+  name: String!
+  order: Int
+  parent: Int
+}
+
+type CategoryType {
+  children: [CategoryType]
+
+  """"""
+  depth: Int!
+  id: Int
+
+  """"""
+  name: String!
+
+  """"""
+  newDrafts: [NewDraftType!]!
+
+  """"""
+  order: Int!
+
+  """"""
+  parent: CategoryType
+
+  """"""
+  products(after: String, before: String, brand_Name: String, category_Name: String, first: Int, last: Int, name_Icontains: String, offset: Int, orderdetail_OrderMaster_UserId: ID, state: String, subCategory_Name: String): ProductMasterNodeConnection!
+
+  """"""
+  subProducts(after: String, before: String, brand_Name: String, category_Name: String, first: Int, last: Int, name_Icontains: String, offset: Int, orderdetail_OrderMaster_UserId: ID, state: String, subCategory_Name: String): ProductMasterNodeConnection!
+}
+
+type ChangeColor {
+  message: String
+  success: Boolean
+}
+
+input ChangeDetailInputType {
+  changingProductId: Int
+  changingQuantity: Int
+  id: Int
+}
+
+type ChangeDetailType {
+  changedProduct: ProductType
+
+  """"""
+  changingPrice: Int!
+  changingProduct: ProductType
+
+  """"""
+  changingQuantity: Int
+
+  """"""
+  csRequestChange: ChangeRequestType!
+
+  """"""
+  id: ID!
+  options: [ProductType]
+
+  """"""
+  orderDetail: OrderDetailNode
+  priceChangedProduct: Int
+
+  """"""
+  priceWork: Int!
+  productName: String
+
+  """"""
+  totalChangingPrice: Int
+}
+
+type ChangeDisplayOrder {
+  success: Boolean
+}
+
+input ChangeDisplayOrderInputType {
+  displayOrder: Int
+  productMasterId: Int
+}
+
+type ChangeHistoryNode implements Node {
+  """"""
+  dateCreated: DateTime!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  inventoryOrder: InventoryOrderMasterNode
+
+  """"""
+  orderDetail: OrderDetailNode
+
+  """"""
+  product: ProductNode!
+
+  """"""
+  productMaster: ProductMasterNode!
+
+  """"""
+  quantityAfter: Int!
+
+  """"""
+  quantityBefore: Int!
+
+  """"""
+  quantityChanged: Int!
+
+  """"""
+  reason: String
+}
+
+type ChangeHistoryNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [ChangeHistoryNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `ChangeHistoryNode` and its cursor."""
+type ChangeHistoryNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: ChangeHistoryNode
+}
+
+type ChangeHistoryType {
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  id: ID!
+
+  """"""
+  inventoryOrder: InventoryOrderMasterNode
+
+  """"""
+  orderDetail: OrderDetailNode
+
+  """"""
+  product: ProductNode!
+
+  """"""
+  productMaster: ProductMasterNode!
+
+  """"""
+  quantityAfter: Int!
+
+  """"""
+  quantityBefore: Int!
+
+  """"""
+  quantityChanged: Int!
+
+  """"""
+  reason: String
+}
+
+type ChangeInfoType {
+  afterSmarterMoney: Int
+  changingProductsPrice: Int
+  currentSmarterMoney: Int
+  paymentAmount: Int
+  totalDeliveryPrice: Int
+}
+
+input ChangeInputType {
+  changingProductId: Int
+  changingQuantity: Int
+  orderDetailId: Int
+}
+
+type ChangeInventoryQuantity {
+  success: Boolean
+}
+
+type ChangeLevelOrder {
+  levels: [LevelType]
+  success: Boolean
+}
+
+type ChangeOrder {
+  success: Boolean
+}
+
+type ChangeOrderDelivery {
+  success: Boolean
+}
+
+type ChangeOrderDetailQuantity {
+  message: String
+  success: Boolean
+}
+
+type ChangePassword {
+  invalid: Boolean
+  success: Boolean
+}
+
+type ChangeProductInfoType {
+  changingPrice: Int
+  changingProductId: Int
+}
+
+type ChangeRequestType {
+  """"""
+  afterSmarterMoney: Int
+  changeDetails: [ChangeDetailType]
+  changeProductsName: String
+
+  """"""
+  changeReason: String
+
+  """"""
+  csRequest: CsRequestType
+  csRequestNumber: String
+
+  """"""
+  currentSmarterMoney: Int
+  customer: GymType
+
+  """"""
+  dateCreated: DateTime!
+  delivery: DeliveryType
+
+  """"""
+  deliveryAddress: String
+
+  """"""
+  deliveryDetailAddress: String
+
+  """"""
+  deliveryPhone: String
+
+  """"""
+  deliveryPrice: Int!
+
+  """"""
+  deliveryReceiver: String
+
+  """"""
+  deliveryZipCode: String
+  gymName: String
+
+  """"""
+  id: ID!
+
+  """"""
+  isChangedPriceExempt: Boolean!
+
+  """"""
+  isDeliveryPriceExempt: Boolean!
+
+  """"""
+  memo: String
+  orderNumber: String
+
+  """"""
+  paymentAmount: Int
+
+  """"""
+  pickUpAddress: String
+
+  """"""
+  pickUpDetailAddress: String
+
+  """"""
+  pickUpPhone: String
+
+  """"""
+  pickUpReceiver: String
+
+  """"""
+  pickUpZipCode: String
+
+  """"""
+  priceToPay: Int
+
+  """"""
+  state: String!
+  totalChangeDetails: Int
+
+  """"""
+  totalChangingPrice: Int
+
+  """"""
+  user: UserNode
+}
+
+type ChangeSize {
+  message: String
+  success: Boolean
+}
+
+type ChangeState {
+  success: Boolean
+}
+
+type ChangeStudentName {
+  message: String!
+  success: Boolean!
+}
+
+type ChangesType {
+  changeRequests: [ChangeRequestType]
+  totalCount: Int
+}
+
+type ChargeOrderNode implements Node {
+  """"""
+  amount: Int!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  method: String
+
+  """"""
+  orderId: String!
+
+  """"""
+  orderName: String!
+
+  """"""
+  state: String!
+
+  """"""
+  user: UserNode!
+}
+
+type ChargeOrderNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [ChargeOrderNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `ChargeOrderNode` and its cursor."""
+type ChargeOrderNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: ChargeOrderNode
+}
+
+type ChargeOrderType {
+  """"""
+  amount: Int!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  method: String
+
+  """"""
+  orderId: String!
+
+  """"""
+  orderName: String!
+
+  """"""
+  state: String!
+
+  """"""
+  user: UserNode!
+}
+
+type ChargeSmarterMoney {
+  smarterMoneyHistory: SmarterMoneyHistoryType
+  success: Boolean
+  wallet: WalletType
+}
+
+input ChargeSmarterMoneyInputType {
+  orderId: String
+  userId: Int
+}
+
+type CheckCode {
+  message: String
+  success: Boolean
+  userId: Int
+}
+
+type CheckIsActive {
+  isActive: Boolean
+  isGym: Boolean
+}
+
+type CheckIsAdmin {
+  success: Boolean
+}
+
+type CheckIsParent {
+  isParent: Boolean
+}
+
+type CheckIsTa {
+  success: Boolean
+}
+
+type ClaimNode implements Node {
+  claimId: Int
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  orderDetail: OrderDetailNode!
+
+  """"""
+  priceProducts: Int!
+
+  """"""
+  priceTotal: Int!
+
+  """"""
+  priceTotalWork: Int!
+
+  """"""
+  priceTotalWorkLabor: Int!
+
+  """"""
+  quantity: Int!
+
+  """"""
+  reason: String!
+
+  """"""
+  refundPrice: Int
+
+  """"""
+  state: String!
+
+  """"""
+  user: UserNode!
+}
+
+type ClaimNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [ClaimNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `ClaimNode` and its cursor."""
+type ClaimNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: ClaimNode
+}
+
+type ClaimType {
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  id: ID!
+
+  """"""
+  orderDetail: OrderDetailNode!
+
+  """"""
+  priceProducts: Int!
+
+  """"""
+  priceTotal: Int!
+
+  """"""
+  priceTotalWork: Int!
+
+  """"""
+  priceTotalWorkLabor: Int!
+
+  """"""
+  quantity: Int!
+
+  """"""
+  reason: String!
+
+  """"""
+  refundPrice: Int
+
+  """"""
+  state: String!
+
+  """"""
+  user: UserNode!
+}
+
+type ClassCancelPayment {
+  success: Boolean
+}
+
+type ClassDepositWithoutAccount {
+  success: Boolean
+}
+
+input ClassDetailInputType {
+  hourEnd: Int!
+  hourStart: Int!
+  isDeleted: Boolean = false
+  minEnd: Int!
+  minStart: Int!
+}
+
+type ClassDetailType {
+  """"""
+  attendanceMaster(after: String, before: String, classMaster_Id: Float, first: Int, last: Int, offset: Int): AttendanceMasterNodeConnection!
+
+  """"""
+  classMaster: ClassMasterType!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateDeleted: DateTime
+
+  """"""
+  day: Int!
+
+  """"""
+  hourEnd: Int!
+
+  """"""
+  hourStart: Int!
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  minEnd: Int!
+
+  """"""
+  minStart: Int!
+}
+
+input ClassMasterInputType {
+  gymId: Int
+  id: Int
+  isDeleted: Boolean = false
+  name: String!
+}
+
+type ClassMasterType {
+  """"""
+  attendanceMaster(after: String, before: String, classMaster_Id: Float, first: Int, last: Int, offset: Int): AttendanceMasterNodeConnection!
+  classDetails: [ClassDetailType]
+
+  """"""
+  classPaymentMasters(after: String, before: String, classMaster_Name: String, first: Int, isApproved: Boolean, last: Int, offset: Int, paymentStatus: String, type: String): ClassPaymentMasterNodeConnection!
+  currentClassDetail: ClassDetailType
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateDeleted: DateTime
+
+  """"""
+  gym: GymNode!
+
+  """"""
+  gymNotifications(after: String, before: String, first: Int, last: Int, offset: Int, title_Icontains: String): GymNotificationNodeConnection!
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  name: String!
+
+  """"""
+  students: [StudentType!]!
+  weekDays: [Int]
+}
+
+type ClassPaymentMasterNode implements Node {
+  """"""
+  classMaster: ClassMasterType!
+
+  """"""
+  className: String!
+  classPaymentMasterId: Int
+
+  """"""
+  dateFrom: Date!
+
+  """"""
+  datePaid: Date
+
+  """"""
+  dateTo: Date!
+
+  """"""
+  dateToPay: Date
+
+  """"""
+  daysDeduct: Int!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isApproved: Boolean!
+
+  """"""
+  memo: String
+
+  """"""
+  orderId: String!
+
+  """"""
+  paymentMethod: String!
+
+  """"""
+  paymentStatus: String!
+
+  """"""
+  price: Int!
+
+  """"""
+  priceDeduct: Int!
+
+  """"""
+  priceToPay: Int!
+
+  """"""
+  student: StudentType!
+
+  """"""
+  type: String
+}
+
+type ClassPaymentMasterNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [ClassPaymentMasterNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `ClassPaymentMasterNode` and its cursor."""
+type ClassPaymentMasterNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: ClassPaymentMasterNode
+}
+
+type CompleteAgencyCalculation {
+  success: Boolean
+}
+
+type CompleteChange {
+  message: String
+  success: Boolean
+}
+
+type CompleteClaim {
+  success: Boolean
+}
+
+type CompleteDraftRequest {
+  draftRequest: DraftRequestType
+  success: Boolean
+}
+
+type CompleteEasyOrder {
+  success: Boolean
+}
+
+type CompletePayment {
+  orderMaster: OrderMasterType
+  success: Boolean
+}
+
+type CompletePaymentsWithoutBank {
+  success: Boolean
+}
+
+type CompletePreWorks {
+  success: Boolean
+}
+
+type CompleteReturn {
+  message: String
+  success: Boolean
+}
+
+type CompleteSubcontractorCalculation {
+  success: Boolean
+}
+
+type CompleteWorks {
+  success: Boolean
+}
+
+type ConcludeCancelOrderWithoutDeposit {
+  message: String
+  success: Boolean
+}
+
+type CouponInfoType {
+  gymIds: [Int]
+  totalExpectedPrice: Int
+  totalUsersCount: Int
+}
+
+type CouponIssueHistoryType {
+  """"""
+  coupon: CouponType!
+
+  """"""
+  couponNumber: String
+
+  """"""
+  dateIssued: DateTime!
+
+  """"""
+  endOfUse: DateTime
+
+  """"""
+  gym: GymNode!
+
+  """"""
+  gymName: String!
+
+  """"""
+  id: ID!
+
+  """"""
+  price: Int
+  referralUserName: String
+  referralUserPhone: String
+
+  """"""
+  startOfUse: DateTime
+}
+
+type CouponMasterIssueHistoriesType {
+  couponMasterIssueHistories: [CouponMasterIssueHistoryType]
+  totalCount: Int
+}
+
+type CouponMasterIssueHistoryType {
+  """"""
+  condition: String
+  couponMaster: CouponMasterType
+
+  """"""
+  couponMessage: String!
+
+  """"""
+  dateIssued: Date!
+
+  """"""
+  expiredDay: Int!
+
+  """"""
+  id: ID!
+
+  """"""
+  issuedAddress: AddressZipCodeType
+
+  """"""
+  issuedAmountPerGym: Int!
+
+  """"""
+  issuedCountPerGym: Int!
+
+  """"""
+  issuedGyms(after: String, agencyId: ID, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, membership_Name: String, name_Icontains: String, offset: Int): GymNodeConnection!
+
+  """"""
+  searchType: String!
+
+  """"""
+  thresholdAmount: Int
+
+  """"""
+  totalIssuedAmount: Int!
+
+  """"""
+  totalIssuedCount: Int!
+}
+
+type CouponMasterType {
+  allCoupons(couponNumber: String, end: String, gymName: String, page: Int, start: String): [CouponType]
+
+  """"""
+  countPerIssue: Int
+
+  """"""
+  couponMessage: String
+
+  """"""
+  couponmasterissuehistorySet: [CouponMasterIssueHistoryType!]!
+  coupons: [CouponType]
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  expireDay: Int
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  name: String
+
+  """"""
+  price: Int
+  totalIssuedCount: Int
+
+  """"""
+  type: String
+  usedCoupons(couponNumber: String, end: String, gymName: String, page: Int, start: String): [CouponType]
+}
+
+type CouponMastersType {
+  couponMasters: [CouponMasterType]
+  totalCount: Int
+}
+
+type CouponType {
+  """"""
+  couponIssueHistories: [CouponIssueHistoryType!]!
+
+  """"""
+  couponMaster: CouponMasterType!
+  couponName: String
+
+  """"""
+  couponNumber: String
+
+  """"""
+  couponUseHistories: [CouponUseHistoryType!]!
+
+  """"""
+  dateIssued: DateTime
+
+  """"""
+  dateUsed: DateTime
+
+  """"""
+  endOfUse: DateTime
+
+  """"""
+  id: ID!
+
+  """"""
+  nominee: GymNode
+
+  """"""
+  order(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, id: Float, last: Int, offset: Int, user_Gym_Name_Icontains: String): OrderMasterNodeConnection!
+
+  """"""
+  price: Int
+
+  """"""
+  referralCode: String
+
+  """"""
+  startOfUse: DateTime
+
+  """"""
+  user: UserNode!
+}
+
+type CouponUseHistoryType {
+  """"""
+  coupon: CouponType!
+
+  """"""
+  couponNumber: String
+
+  """"""
+  dateUsed: DateTime
+
+  """"""
+  gym: GymNode!
+
+  """"""
+  gymName: String
+
+  """"""
+  id: ID!
+
+  """"""
+  orderMaster: OrderMasterNode!
+
+  """"""
+  orderNumber: String!
+
+  """"""
+  price: Int
+}
+
+type CreateAbsentRequest {
+  success: Boolean
+}
+
+type CreateAddress {
+  success: Boolean
+}
+
+type CreateAudition {
+  success: Boolean
+}
+
+type CreateChangeRequest {
+  message: String
+  success: Boolean
+}
+
+type CreateChargeOrder {
+  chargeOrder: ChargeOrderType
+}
+
+type CreateContentReply {
+  reply: CsRequestContentType
+  success: Boolean
+}
+
+type CreateCouponMaster {
+  success: Boolean
+}
+
+type CreateCsRequest {
+  csRequestId: Int
+  success: String
+}
+
+type CreateCsRequestContents {
+  csRequestContents: [CsRequestContentType]
+  success: Boolean
+}
+
+type CreateCsRequestMemo {
+  csRequestMemos: [CsRequestMemoType]
+  success: Boolean
+}
+
+type CreateDraft {
+  draft: NewDraftType
+  success: Boolean
+}
+
+type CreateDraftRequest {
+  created: Boolean
+  draftRequest: DraftRequestType
+}
+
+type CreateEasyOrder {
+  success: Boolean
+}
+
+type CreateGymNotification {
+  success: Boolean
+}
+
+type CreateInventoryOrder {
+  success: Boolean
+}
+
+type CreateInventoryReceived {
+  success: Boolean
+}
+
+type CreateMultipleDrafts {
+  success: Boolean
+}
+
+type CreateNewDraft {
+  success: Boolean
+}
+
+type CreateNewInventory {
+  success: Boolean
+}
+
+type CreateOrUpdateAdditionalDeliveryPrice {
+  success: Boolean
+}
+
+type CreateOrUpdateAddress {
+  address: AddressType
+  success: Boolean
+}
+
+type CreateOrUpdateAdmin {
+  duplicated: Boolean
+  success: Boolean
+}
+
+type CreateOrUpdateAgency {
+  duplicated: Boolean
+  success: Boolean
+}
+
+type CreateOrUpdateBankAccount {
+  success: Boolean
+}
+
+type CreateOrUpdateBanner {
+  success: Boolean
+}
+
+type CreateOrUpdateClass {
+  isDuplicated: Boolean
+  studentExists: Boolean
+  success: Boolean
+}
+
+type CreateOrUpdateDeliveryAgency {
+  success: Boolean
+}
+
+type CreateOrUpdateDraft {
+  draft: NewDraftType
+  success: Boolean
+}
+
+type CreateOrUpdateFaq {
+  success: Boolean
+}
+
+type CreateOrUpdateGym {
+  agencyNotFound: Boolean
+  duplicatedBusinessRegistrationNumber: Boolean
+  duplicatedIdentification: Boolean
+  duplicatedPhone: Boolean
+  gym: GymType
+  gymUser: UserType
+  message: String
+  success: Boolean
+}
+
+type CreateOrUpdateLevel {
+  deleted: Boolean
+  isDuplicated: Boolean
+  studentExists: Boolean
+  success: Boolean
+}
+
+type CreateOrUpdateNoice {
+  success: Boolean
+}
+
+type CreateOrUpdateProductMaster {
+  duplicated: Boolean
+  productMaster: ProductMasterType
+}
+
+type CreateOrUpdateSubcontractor {
+  duplicated: Boolean
+  success: Boolean
+}
+
+type CreateOrUpdateUserAddress {
+  success: Boolean
+}
+
+type CreateOrUpdateUserRefundAccount {
+  success: Boolean
+}
+
+type CreateOrUpdateWork {
+  success: Boolean
+  work: WorkType
+}
+
+type CreateReturnRequest {
+  message: String
+  success: Boolean
+}
+
+type CreateStudent {
+  success: Boolean
+}
+
+type CreateTaOrder {
+  message: String
+  success: Boolean
+}
+
+type CreateUserChangeRequest {
+  message: String
+  success: Boolean
+}
+
+type CreateUserReturnRequest {
+  message: String
+  success: Boolean
+}
+
+type CsCancelOrder {
+  message: String
+  success: Boolean
+}
+
+"""
+고객 문의로 인한 스마터머니 충전. 
+
+description이 null 이면 '고객문의로 인한 충전'으로 세팅
+"""
+type CsChargeSmarterMoney {
+  success: Boolean
+}
+
+type CsOrderDetailType {
+  """"""
+  changeDetails: [ChangeDetailType!]!
+
+  """"""
+  changehistorySet: [ChangeHistoryType!]!
+
+  """"""
+  claims: [ClaimType!]!
+  color: String
+  colors: [String]
+
+  """"""
+  csOrderChangeHistories: [PartialCancelHistoryType!]!
+
+  """"""
+  dateToBeShipped: Date
+
+  """"""
+  delivery: DeliveryType
+
+  """"""
+  draft: DraftType
+
+  """"""
+  id: ID!
+
+  """"""
+  isChanged: Boolean!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  isDirectDelivery: Boolean!
+
+  """"""
+  isReturned: Boolean!
+
+  """"""
+  newDraft: NewDraftType
+
+  """"""
+  orderDetailNumber: String!
+
+  """"""
+  orderMaster: OrderMasterNode!
+  priceAdditional: Int
+
+  """"""
+  priceConsumer: Int!
+  priceGym: Int
+
+  """"""
+  priceOption: Int!
+
+  """"""
+  priceParent: Int!
+
+  """"""
+  priceProducts: Int!
+
+  """"""
+  priceTotal: Int!
+
+  """"""
+  priceVendor: Int!
+  priceWork: Int
+
+  """"""
+  priceWorkLabor: Int!
+
+  """"""
+  product: ProductNode!
+
+  """"""
+  productMaster: ProductMasterNode
+  productMasterName: String
+
+  """"""
+  quantity: Int!
+
+  """"""
+  returnDetails: [ReturnDetailType!]!
+  size: String
+  sizes: [String]
+
+  """"""
+  state: String!
+
+  """"""
+  studentNames: [String!]!
+
+  """"""
+  taOrderDetails: [TaOrderDetailType!]!
+
+  """"""
+  userRequest: String
+
+  """"""
+  work: WorkNode
+}
+
+type CsOrderMastersType {
+  orderMasters: [OrderMasterType]
+  totalCount: Int
+}
+
+type CsPartialCancel {
+  message: String
+  success: Boolean
+}
+
+input CsProductInputType {
+  productId: Int
+  quantity: Int
+}
+
+type CsRequestContentType {
+  """"""
+  contents: String
+
+  """"""
+  csRequest: CsRequestType!
+  csRequestContentId: Int
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  parent: CsRequestContentType
+  replies: [CsRequestContentType]
+}
+
+type CsRequestMemoType {
+  """"""
+  contents: String
+
+  """"""
+  csRequest: CsRequestType!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+}
+
+type CsRequestType {
+  """"""
+  cancelorderrequestSet: [CancelOrderRequestType!]!
+
+  """"""
+  category: String!
+
+  """"""
+  changes: [ChangeRequestType!]!
+
+  """"""
+  csOrderChangeHistories: [PartialCancelHistoryType!]!
+  csRequestId: Int
+
+  """"""
+  csState: String!
+
+  """"""
+  dateCompleted: DateTime
+
+  """"""
+  dateRequested: DateTime!
+  gym: GymType
+  gymName: String
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+  orderMaster: OrderMasterType
+  orderMasterId: Int
+
+  """"""
+  orderNumber: String
+
+  """"""
+  orderState: String
+
+  """"""
+  reason: String
+  requestContents(first: Int, last: Int): [CsRequestContentType]
+
+  """"""
+  requestMemos: [CsRequestMemoType!]!
+
+  """"""
+  requestNumber: String!
+
+  """"""
+  returns: [ReturnType!]!
+  totalCount: Int
+}
+
+type CsRequestsType {
+  csRequests: [CsRequestType]
+  totalCount: Int
+}
+
+"""
+TODO
+고객 문의로 인한 스마터머니 차감. 
+"""
+type CsSubtractSmarterMoney {
+  success: Boolean
+}
+
+type CustomersType {
+  customers: [GymType]
+  totalCount: Int
+}
+
+"""
+The `Date` scalar type represents a Date
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar Date
+
+"""
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
+
+type DeclineClaim {
+  success: Boolean
+}
+
+type DeleteAbsentRequest {
+  success: Boolean
+}
+
+type DeleteAddress {
+  message: String
+  success: Boolean
+}
+
+type DeleteAuditionDetail {
+  success: Boolean
+}
+
+type DeleteAuditionMaster {
+  success: Boolean
+}
+
+type DeleteClassDetail {
+  success: Boolean
+}
+
+type DeleteClassMaster {
+  success: Boolean
+}
+
+type DeleteColor {
+  message: String
+  success: Boolean
+}
+
+type DeleteContentReply {
+  success: Boolean
+}
+
+type DeleteCsRequestContents {
+  csRequestContents: [CsRequestContentType]
+  success: Boolean
+}
+
+type DeleteCsRequestMemo {
+  csRequestMemos: [CsRequestMemoType]
+  success: Boolean
+}
+
+type DeleteDeliveryAgency {
+  success: Boolean
+}
+
+type DeleteDrafts {
+  success: Boolean
+}
+
+type DeleteEasyOrderRequests {
+  success: Boolean
+}
+
+type DeleteFaq {
+  success: Int
+}
+
+type DeleteGymNotification {
+  success: Boolean
+}
+
+type DeleteInfoBankAccount {
+  success: Boolean
+}
+
+type DeleteInventoryOrderDetails {
+  success: Boolean
+}
+
+type DeleteJSONWebTokenCookie {
+  deleted: Boolean!
+}
+
+type DeleteLevel {
+  success: Boolean
+}
+
+type DeleteMultipleDrafts {
+  success: Boolean
+}
+
+type DeleteNotice {
+  success: Int
+}
+
+type DeleteOrderMasters {
+  success: Boolean
+}
+
+type DeleteSize {
+  message: String
+  success: Boolean
+}
+
+type DeleteStudent {
+  success: Boolean
+}
+
+input DeliveryAgencyInputType {
+  id: Int
+  isActive: Boolean
+  isDefault: Boolean
+  name: String
+}
+
+type DeliveryAgencyType {
+  """"""
+  deliverySet: [DeliveryType!]!
+
+  """"""
+  id: ID!
+
+  """"""
+  isActive: Boolean
+
+  """"""
+  isDefault: Boolean
+
+  """"""
+  name: String!
+}
+
+type DeliveryType {
+  change: ChangeRequestType
+  changeDetails: [ChangeDetailType]
+
+  """"""
+  deliveryAgency: DeliveryAgencyType!
+
+  """"""
+  id: ID!
+  orderDetails: [OrderDetailType]
+  orderMaster: OrderMasterType
+  photo: String
+
+  """"""
+  trackingNumber: String!
+}
+
+type DepositWithoutAccount {
+  message: String
+  orderMaster: OrderMasterType
+  success: Boolean
+}
+
+input DraftInputType {
+  file: Upload
+  font: String
+  id: Int
+  image: String
+  memo: String
+  priceWork: Int!
+  priceWorkLabor: Int!
+  productMasterId: Int
+  threadColor: String
+}
+
+type DraftRequestNode implements Node {
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateFinished: DateTime
+  draftRequestId: Int
+  drafts: [NewDraftType]
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  newDrafts: [NewDraftType!]!
+
+  """"""
+  state: String!
+
+  """"""
+  user: UserNode!
+}
+
+type DraftRequestNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [DraftRequestNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `DraftRequestNode` and its cursor."""
+type DraftRequestNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: DraftRequestNode
+}
+
+type DraftRequestType {
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateFinished: DateTime
+
+  """"""
+  drafts: [DraftType!]!
+
+  """"""
+  id: ID!
+
+  """"""
+  newDrafts: [NewDraftType!]!
+
+  """"""
+  state: String!
+
+  """"""
+  user: UserNode!
+}
+
+input DraftSizeInputType {
+  backHeight: Int
+  backWidth: Int
+  flagHeight: Int
+  flagWidth: Int
+  heapHeight: Int
+  heapWidth: Int
+  id: Int
+  leftChestHeight: Int
+  leftChestWidth: Int
+  leftPantLowHeight: Int
+  leftPantLowWidth: Int
+  leftPantMiddleHeight: Int
+  leftPantMiddleWidth: Int
+  leftShoulderHeight: Int
+  leftShoulderWidth: Int
+  name: String
+  rightChestHeight: Int
+  rightChestWidth: Int
+  rightPantLowHeight: Int
+  rightPantLowWidth: Int
+  rightPantMiddleHeight: Int
+  rightPantMiddleWidth: Int
+  rightShoulderHeight: Int
+  rightShoulderWidth: Int
+}
+
+type DraftSizeType {
+  """"""
+  backHeight: Int!
+
+  """"""
+  backWidth: Int!
+
+  """"""
+  flagHeight: Int!
+
+  """"""
+  flagWidth: Int!
+
+  """"""
+  heapHeight: Int!
+
+  """"""
+  heapWidth: Int!
+
+  """"""
+  id: ID!
+
+  """"""
+  leftChestHeight: Int!
+
+  """"""
+  leftChestWidth: Int!
+
+  """"""
+  leftPantLowHeight: Int!
+
+  """"""
+  leftPantLowWidth: Int!
+
+  """"""
+  leftPantMiddleHeight: Int!
+
+  """"""
+  leftPantMiddleWidth: Int!
+
+  """"""
+  leftShoulderHeight: Int!
+
+  """"""
+  leftShoulderWidth: Int!
+
+  """"""
+  name: String!
+
+  """"""
+  newDraft: NewDraftType!
+
+  """"""
+  rightChestHeight: Int!
+
+  """"""
+  rightChestWidth: Int!
+
+  """"""
+  rightPantLowHeight: Int!
+
+  """"""
+  rightPantLowWidth: Int!
+
+  """"""
+  rightPantMiddleHeight: Int!
+
+  """"""
+  rightPantMiddleWidth: Int!
+
+  """"""
+  rightShoulderHeight: Int!
+
+  """"""
+  rightShoulderWidth: Int!
+}
+
+type DraftType {
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  draftRequest: DraftRequestNode
+
+  """"""
+  font: String
+
+  """"""
+  id: ID!
+  image: String
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  memo: String
+
+  """"""
+  orders(after: String, before: String, first: Int, id: Float, last: Int, offset: Int, orderMaster_DateCreated_Gte: DateTime, orderMaster_DateCreated_Lte: DateTime, orderMaster_User_Gym_Name_Icontains: String, state: String): OrderDetailNodeConnection!
+
+  """"""
+  priceWork: Int
+
+  """"""
+  priceWorkLabor: Int
+
+  """"""
+  productMaster: ProductMasterNode
+
+  """"""
+  productmasterSet(after: String, before: String, brand_Name: String, category_Name: String, first: Int, last: Int, name_Icontains: String, offset: Int, orderdetail_OrderMaster_UserId: ID, state: String, subCategory_Name: String): ProductMasterNodeConnection!
+
+  """"""
+  threadColor: String
+
+  """"""
+  user: UserNode!
+}
+
+type DraftsType {
+  drafts: [NewDraftType]
+  totalCount: Int
+}
+
+type EasyOrderFileType {
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  easyOrder: EasyOrderNode!
+  file: String
+
+  """"""
+  id: ID!
+}
+
+type EasyOrderNode implements Node {
+  addresses: [AddressType]
+
+  """"""
+  contents: String
+
+  """"""
+  dateCompleted: DateTime
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateRead: DateTime
+
+  """"""
+  dateUpdated: DateTime!
+  defaultAddress: AddressType
+  draft: String
+  easyOrderId: Int
+  files: [EasyOrderFileType]
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isOrderMore: Boolean!
+
+  """"""
+  isVisit: Boolean!
+
+  """"""
+  order: OrderMasterNode
+
+  """"""
+  state: String!
+
+  """"""
+  user: UserNode!
+}
+
+type EasyOrderNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [EasyOrderNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `EasyOrderNode` and its cursor."""
+type EasyOrderNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: EasyOrderNode
+}
+
+type EasyOrderToPaid {
+  success: Boolean
+}
+
+type ExtraPriceDeliveryType {
+  """"""
+  id: ID!
+
+  """"""
+  price: Int!
+}
+
+type FaqNode implements Node {
+  """"""
+  contents: String!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+  faqId: Int
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isActive: Boolean!
+
+  """"""
+  title: String!
+
+  """"""
+  user: UserNode!
+}
+
+type FaqNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [FaqNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `FaqNode` and its cursor."""
+type FaqNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: FaqNode
+}
+
+type FinishDraftRequest {
+  message: String
+  success: Boolean
+}
+
+type FirstInnerItem {
+  bankPayment: Int
+  cardPayment: Int
+  refundAmount: Int
+  smarterMoneyAmount: Int
+  totalAmount: Int
+  totalPayment: Int
+  withoutBankPayment: Int
+}
+
+"""
+The `GenericScalar` scalar type represents a generic
+GraphQL scalar value that could be:
+String, Boolean, Int, Float, List or Object.
+"""
+scalar GenericScalar
+
+type GymBankAccountType {
+  bankAccountNo: String
+  bankName: String
+  bankOwnerName: String
+}
+
+input GymInputType {
+  address: String
+  agencyId: Int
+  businessRegistrationCertificate: Upload
+  businessRegistrationNumber: String
+  classPaymentBankAccountNo: String
+  classPaymentBankName: String
+  classPaymentBankOwnerName: String
+  detailAddress: String
+  email: String
+  isDeductEnabled: Boolean = false
+  managerName: String
+  memo: String
+  name: String
+  ownerName: String
+  refundBankAccountNo: String
+  refundBankName: String
+  refundBankOwnerName: String
+  user: UserInputType
+  zipCode: String
+}
+
+type GymNode implements Node {
+  """"""
+  address: String
+
+  """"""
+  agency: AgencyNode
+
+  """"""
+  attendanceMasters(after: String, before: String, classMaster_Id: Float, first: Int, last: Int, offset: Int): AttendanceMasterNodeConnection!
+
+  """"""
+  auditionMasters: [AuditionMasterType!]!
+  businessRegistrationCertificate: String
+
+  """"""
+  businessRegistrationNumber: String
+
+  """"""
+  classMasters: [ClassMasterType!]!
+
+  """"""
+  classPaymentBankAccountNo: String
+
+  """"""
+  classPaymentBankName: String
+
+  """"""
+  classPaymentBankOwnerName: String
+
+  """"""
+  couponIssueHistories: [CouponIssueHistoryType!]!
+
+  """"""
+  couponSet: [CouponType!]!
+
+  """"""
+  couponUseHistories: [CouponUseHistoryType!]!
+
+  """"""
+  couponmasterissuehistorySet: [CouponMasterIssueHistoryType!]!
+
+  """"""
+  csRequests: [CsRequestType!]!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  detailAddress: String
+  drafts: [NewDraftType]
+
+  """"""
+  email: String
+  groups: [String]
+  gymId: Int
+
+  """"""
+  gymNotifications(after: String, before: String, first: Int, last: Int, offset: Int, title_Icontains: String): GymNotificationNodeConnection!
+  hasDraft: Boolean
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isDeductEnabled: Boolean!
+
+  """"""
+  levels: [LevelType!]!
+
+  """"""
+  managerName: String
+  membership: String
+
+  """"""
+  memo: String
+
+  """"""
+  name: String!
+
+  """"""
+  ownerName: String
+  productMasters(category: String, subCategory: String): [ProductMasterType]
+
+  """"""
+  refundBankAccountNo: String
+
+  """"""
+  refundBankName: String
+
+  """"""
+  refundBankOwnerName: String
+  smarterMoney: Int
+
+  """"""
+  totalPurchasedAmount: Int!
+
+  """"""
+  user: UserNode!
+
+  """"""
+  zipCode: String
+}
+
+type GymNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [GymNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `GymNode` and its cursor."""
+type GymNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: GymNode
+}
+
+type GymNotificationNode implements Node {
+  """"""
+  classMaster: ClassMasterType
+
+  """"""
+  contents: String!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  eventDate: Date
+
+  """"""
+  gym: GymNode!
+
+  """The ID of the object."""
+  id: ID!
+  images: [String]
+  notificationId: Int
+
+  """"""
+  receivers(after: String, before: String, first: Int, last: Int, offset: Int): GymNotificationReceiverNodeConnection!
+
+  """"""
+  sendDatetime: DateTime
+
+  """"""
+  sendType: String
+
+  """"""
+  title: String!
+
+  """"""
+  type: String
+}
+
+type GymNotificationNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [GymNotificationNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `GymNotificationNode` and its cursor."""
+type GymNotificationNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: GymNotificationNode
+}
+
+type GymNotificationRead {
+  success: Boolean
+}
+
+type GymNotificationReceiverNode implements Node {
+  """"""
+  dateRead: DateTime
+
+  """"""
+  gymNotification: GymNotificationNode!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  parent: ParentType!
+  receiverId: Int
+}
+
+type GymNotificationReceiverNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [GymNotificationReceiverNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""
+A Relay edge containing a `GymNotificationReceiverNode` and its cursor.
+"""
+type GymNotificationReceiverNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: GymNotificationReceiverNode
+}
+
+type GymOrderHistoryByAgency {
+  gymOrderHistoryByAgency: [GymOrderHistoryByAgencyType]
+}
+
+type GymOrderHistoryByAgencyType {
+  agencyName: String
+  dateCreated: Date
+  gymName: String
+  priceGym: Int
+  priceTotal: Int
+  productName: String
+  quantity: Int
+  userName: String
+}
+
+type GymType {
+  """"""
+  address: String
+  addresses(page: Int): AddressesType
+  agency: AgencyType
+
+  """"""
+  attendanceMasters(after: String, before: String, classMaster_Id: Float, first: Int, last: Int, offset: Int): AttendanceMasterNodeConnection!
+
+  """"""
+  auditionMasters: [AuditionMasterType!]!
+  businessRegistrationCertificate: String
+
+  """"""
+  businessRegistrationNumber: String
+
+  """"""
+  classMasters: [ClassMasterType!]!
+
+  """"""
+  classPaymentBankAccountNo: String
+
+  """"""
+  classPaymentBankName: String
+
+  """"""
+  classPaymentBankOwnerName: String
+
+  """"""
+  couponIssueHistories: [CouponIssueHistoryType!]!
+
+  """"""
+  couponSet: [CouponType!]!
+
+  """"""
+  couponUseHistories: [CouponUseHistoryType!]!
+
+  """"""
+  couponmasterissuehistorySet: [CouponMasterIssueHistoryType!]!
+  csRequests(page: Int): CsRequestsType
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  detailAddress: String
+  drafts(page: Int): DraftsType
+
+  """"""
+  email: String
+  gymId: Int
+
+  """"""
+  gymNotifications(after: String, before: String, first: Int, last: Int, offset: Int, title_Icontains: String): GymNotificationNodeConnection!
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeductEnabled: Boolean!
+
+  """"""
+  levels: [LevelType!]!
+
+  """"""
+  managerName: String
+
+  """"""
+  membership: MembershipType!
+
+  """"""
+  memo: String
+
+  """"""
+  name: String!
+  orderMasters(excludeStates: [String], page: Int): CsOrderMastersType
+
+  """"""
+  ownerName: String
+  prevMonthPurchasedAmount: Int
+
+  """"""
+  refundBankAccountNo: String
+
+  """"""
+  refundBankName: String
+
+  """"""
+  refundBankOwnerName: String
+  smarterMoney: Int
+  smarterMoneyHistories(page: Int): SmarterMoneyHistoriesType
+
+  """"""
+  totalPurchasedAmount: Int!
+
+  """"""
+  user: UserNode!
+
+  """"""
+  zipCode: String
+}
+
+type GymsStatisticsConnection {
+  """Contains the nodes in this connection."""
+  edges: [GymsStatisticsEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+"""A Relay edge containing a `GymsStatistics` and its cursor."""
+type GymsStatisticsEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: GymsStatisticsType
+  other: String
+}
+
+type GymsStatisticsType implements Node {
+  agencyName: String
+  bankPayment: Int
+  cardPayment: Int
+  gymName: String
+
+  """The ID of the object."""
+  id: ID!
+  refundAmount: Int
+  smarterMoneyAmount: Int
+  totalAmount: Int
+  totalPayment: Int
+  withoutBankPayment: Int
+}
+
+type HelloWorld {
+  success: Boolean
+}
+
+type InventoryOrderDetailNode implements Node {
+  """"""
+  color: String!
+
+  """"""
+  date: DateTime
+  detailId: Int
+
+  """"""
+  expectedInventoryQuantity: Int
+
+  """"""
+  goalInventoryQuantity: Int
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  inventoryOrderMaster: InventoryOrderMasterNode!
+
+  """"""
+  inventoryQuantity: Int!
+
+  """"""
+  inventoryReceived(after: String, before: String, first: Int, last: Int, offset: Int): InventoryReceivedDetailNodeConnection!
+
+  """"""
+  name: String!
+
+  """"""
+  note: String
+
+  """"""
+  priceVendor: Int
+
+  """"""
+  priceVendorTotal: Int!
+
+  """"""
+  product: ProductNode!
+
+  """"""
+  quantityOrdered: Int!
+
+  """"""
+  size: String!
+}
+
+type InventoryOrderDetailNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [InventoryOrderDetailNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+}
+
+"""A Relay edge containing a `InventoryOrderDetailNode` and its cursor."""
+type InventoryOrderDetailNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: InventoryOrderDetailNode
+}
+
+input InventoryOrderInputType {
+  inventoryDetailId: Int
+  quantityOrdered: Int
+}
+
+type InventoryOrderMasterNode implements Node {
+  """"""
+  changehistorySet: [ChangeHistoryType!]!
+
+  """"""
+  dateClose: DateTime
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateScheduledReceiving: DateTime
+
+  """"""
+  dateUpdated: DateTime!
+  details(after: String, before: String, first: Int, last: Int, offset: Int): InventoryOrderDetailNodeConnection
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  inventoryOrderNumber: String!
+
+  """"""
+  isActivate: Boolean!
+
+  """"""
+  memo: String
+  orderId: Int
+  priceTotal: Int
+  productNames: String
+
+  """"""
+  receivedMaster(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String): InventoryReceivedMasterNodeConnection!
+
+  """"""
+  state: String
+
+  """"""
+  supplier: SupplierType!
+}
+
+type InventoryOrderMasterNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [InventoryOrderMasterNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `InventoryOrderMasterNode` and its cursor."""
+type InventoryOrderMasterNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: InventoryOrderMasterNode
+}
+
+type InventoryReceivedDetailNode implements Node {
+  """"""
+  color: String
+  detailId: Int
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  inventoryOrderDetail: InventoryOrderDetailNode!
+
+  """"""
+  inventoryReceivedMaster: InventoryReceivedMasterNode!
+
+  """"""
+  name: String
+
+  """"""
+  priceAdditionalReceived: Int
+
+  """"""
+  priceOrdered: Int
+
+  """"""
+  priceReceived: Int
+
+  """"""
+  priceVendor: Int
+
+  """"""
+  quantityAdditionalReceived: Int
+
+  """"""
+  quantityNotReceived: Int
+
+  """"""
+  quantityOrdered: Int
+
+  """"""
+  quantityReceived: Int
+
+  """"""
+  reasonNotReceived: String
+
+  """"""
+  size: String
+}
+
+type InventoryReceivedDetailNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [InventoryReceivedDetailNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""
+A Relay edge containing a `InventoryReceivedDetailNode` and its cursor.
+"""
+type InventoryReceivedDetailNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: InventoryReceivedDetailNode
+}
+
+input InventoryReceivedInputType {
+  inventoryOrderDetailId: Int
+  quantityNotReceived: Int
+  quantityReceived: Int
+  reason: String
+}
+
+type InventoryReceivedMasterNode implements Node {
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  details(after: String, before: String, first: Int, last: Int, offset: Int): InventoryReceivedDetailNodeConnection!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  inventoryOrderMaster: InventoryOrderMasterNode!
+  priceTotalAdditionalReceived: Int
+  priceTotalOrdered: Int
+  priceTotalReceived: Int
+  quantityTotalAdditionalReceived: Int
+  quantityTotalNotReceived: Int
+  quantityTotalOrdered: Int
+  quantityTotalReceived: Int
+
+  """"""
+  receiveNumber: String!
+
+  """"""
+  state: String
+}
+
+type InventoryReceivedMasterNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [InventoryReceivedMasterNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""
+A Relay edge containing a `InventoryReceivedMasterNode` and its cursor.
+"""
+type InventoryReceivedMasterNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: InventoryReceivedMasterNode
+}
+
+type IrisStatisticsType {
+  dateFrom: String
+  dateTo: String
+  refundAmount: Int
+  totalBankAccountPayment: Int
+  totalCardPayment: Int
+  totalCashPayment: Int
+  totalDeliveryPrice: Int
+  totalOrderPrice: Int
+  totalPayment: Int
+  totalPrice: Int
+  totalProductPrice: Int
+  totalProfitAmount: Int
+  totalSalesPayment: Int
+  totalSmarterMoneyPayment: Int
+  totalWorkLaborPrice: Int
+  totalWorkPrice: Int
+}
+
+type IsApproved {
+  success: Boolean
+}
+
+type IssueManualCoupon {
+  message: String
+  success: Boolean
+}
+
+type IssuedCouponsType {
+  issuedCouponsHistories: [CouponIssueHistoryType]
+  totalCount: Int
+}
+
+input LevelInputType {
+  belt: String
+  beltBrand: String
+  beltColor: String
+  id: Int
+  name: String
+}
+
+type LevelType {
+  """"""
+  auditionMastersCurrent: [AuditionMasterType!]!
+
+  """"""
+  auditionMastersNext: [AuditionMasterType!]!
+
+  """"""
+  belt: String!
+
+  """"""
+  beltBrand: String
+
+  """"""
+  beltColor: String
+
+  """"""
+  gym: GymNode!
+
+  """"""
+  id: ID!
+
+  """"""
+  name: String!
+
+  """"""
+  order: Int!
+
+  """"""
+  students: [StudentType!]!
+}
+
+type Me {
+  user: UserType
+}
+
+type MembershipType {
+  """"""
+  condition: Int
+
+  """"""
+  id: ID!
+
+  """"""
+  max: Int
+
+  """"""
+  membership(after: String, agencyId: ID, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, membership_Name: String, name_Icontains: String, offset: Int): GymNodeConnection!
+
+  """"""
+  name: String!
+
+  """"""
+  percentage: Float
+
+  """"""
+  threshold: Int
+}
+
+type Mutation {
+  addAuditionDetail(auditionMasterId: Int, studentIds: [Int]): AddAuditionDetail
+  addInventoryOrderDetails(inventoryOrderMasterId: Int, productIds: [Int]): AddInventoryOrderDetails
+  additionalOrder(csRequestId: Int, orderedProducts: [OrderedProductInputType]): AdditionalOrder
+  additionalReceive(inventoryReceivedDetails: [AdditionalReceiveInputType]): AdditionalReceive
+  assignWork(memo: String, orderDetailIds: [Int], subcontractorId: Int!): AssignWork
+  attendanceForStudent(classMasterId: Int, studentId: Int): AttendanceForStudent
+  auditionDetailPass(auditionDetailId: Int, didPass: Boolean, memo: String): AuditionDetailPass
+  auditionMasterPass(auditionMasterId: Int, estimatedAlarmDate: String): AuditionMasterPass
+  bulkChargeSmarterMoney(orders: [ChargeSmarterMoneyInputType]): BulkChargeSmarterMoney
+  bundleDelivery(deliveryAgencyId: Int, orderDetailIds: [Int], photo: Upload, trackingNumber: String): BundleDelivery
+  cancelEasyOrder(orderMasterId: Int!): CancelEasyOrder
+  cancelOrder(orderMasterId: Int!): CancelOrder
+  cancelPayment(orderId: String): CancelPayment
+  cancelStudent(orderDetailId: Int!, studentName: String!): CancelStudent
+  changeColor(changedColor: String, changingColor: String, productMasterId: Int): ChangeColor
+  changeDisplayOrder(changingProductMasters: [ChangeDisplayOrderInputType]): ChangeDisplayOrder
+  changeInventoryQuantity(productId: Int!, quantity: Int!, reason: String!): ChangeInventoryQuantity
+  changeLevelOrder(id: Int, increase: Boolean): ChangeLevelOrder
+  changeOrder(newProductId: Int!, orderDetailId: Int!, quantity: Int!, reason: String!): ChangeOrder
+  changeOrderDelivery(addressId: Int, orderMasterId: Int): ChangeOrderDelivery
+  changeOrderDetailQuantity(csRequestId: Int, newQuantity: Int, orderDetailId: Int): ChangeOrderDetailQuantity
+  changePassword(changingPassword: String, currentPassword: String): ChangePassword
+  changeSize(changedSize: String, changingSize: String, productMasterId: Int): ChangeSize
+  changeState(orderDetailNumbers: [String], state: String!): ChangeState
+  changeStudentName(changedName: String!, changingName: String!, orderDetailId: Int!): ChangeStudentName
+  chargeSmarterMoney(orderId: String, userId: Int): ChargeSmarterMoney
+  checkCode(code: Int, identification: String, phoneNumber: String): CheckCode
+  checkIsActive(identification: String): CheckIsActive
+  checkIsAdmin(token: String): CheckIsAdmin
+  checkIsParent(identification: String): CheckIsParent
+  checkIsTa: CheckIsTa
+  classCancelPayment(orderId: String): ClassCancelPayment
+  classDepositWithoutAccount(classPaymentMasterIds: [Int]): ClassDepositWithoutAccount
+  completeAgencyCalculation(calculationIds: [Int]): CompleteAgencyCalculation
+  completeChange(changeReason: String, changeRequestDetails: [ChangeDetailInputType], changeRequestId: Int, deliveryAddress: String, deliveryAgencyId: Int, deliveryDetailAddress: String, deliveryPhone: String, deliveryPrice: Int, deliveryReceiver: String, deliveryZipCode: String, isChangedPriceExempt: Boolean, isDeliveryPriceExempt: Boolean, memo: String, pickUpAddress: String, pickUpDetailAddress: String, pickUpPhone: String, pickUpReceiver: String, pickUpZipCode: String, trackingNumber: String): CompleteChange
+  completeClaim(claimIds: [Int], refundPrice: Int): CompleteClaim
+  completeDraftRequest(draftRequestId: Int, drafts: [NewDraftInputType]): CompleteDraftRequest
+  completeEasyOrder(addressId: Int, easyOrderId: Int, easyOrderIsVisit: Boolean, memo: String, orderedProducts: [OrderedProductInputType]): CompleteEasyOrder
+  completePayment(address: String, deliveryRequest: String, detailAddress: String, orderId: Int, orderNumber: String, phone: String, receiver: String, smarterMoney: Int, zipCode: String): CompletePayment
+  completePaymentsWithoutBank(orderMasterNumbers: [String]): CompletePaymentsWithoutBank
+  completePreWorks(subcontractorId: Int, workIds: [Int]): CompletePreWorks
+  completeReturn(address: String, deliveryPrice: Int, detailAddress: String, isDeliveryPriceExempt: Boolean, memo: String, phone: String, receiver: String, returnDetails: [ReturnDetailInputType], returnId: Int, returnReason: String, zipCode: String): CompleteReturn
+  completeSubcontractorCalculation(calculationIds: [Int]): CompleteSubcontractorCalculation
+  completeWorks(workIds: [Int]): CompleteWorks
+  concludeCancelOrderWithoutDeposit(cancelIds: [Int]): ConcludeCancelOrderWithoutDeposit
+  createAbsentRequest(absentReason: String, dateAbsent: DateTime, dateAbsentEnd: DateTime, student: String): CreateAbsentRequest
+  createAddress(address: String, deliveryMemo: String, detailAddress: String, email: String, gymId: Int, isDefault: Boolean, name: String, phone: String, receiver: String, zipCode: String): CreateAddress
+  createAudition(auditionMasterObjects: [AuditionMasterInputType], dateAlarm: String, dateAudition: String): CreateAudition
+  createChangeRequest(changeReason: String = "", csRequestId: Int!, deliveryAddress: String, deliveryDetailAddress: String, deliveryPhone: String, deliveryReceiver: String, deliveryZipCode: String, memo: String, orderDetails: [ChangeInputType], pickUpAddress: String, pickUpDetailAddress: String, pickUpPhone: String, pickUpReceiver: String, pickUpZipCode: String): CreateChangeRequest
+  createChargeOrder(amount: Int!, method: String): CreateChargeOrder
+  createContentReply(contents: String, parentId: Int): CreateContentReply
+  createCoupon(message: String, name: String, price: Int): CreateCouponMaster
+  createCsRequest(category: String!, contents: String, gymId: Int!, memo: String, orderMasterId: Int, reason: String): CreateCsRequest
+  createCsRequestContents(contents: String, csRequestId: Int): CreateCsRequestContents
+  createCsRequestMemo(csRequestId: Int, memo: String): CreateCsRequestMemo
+  createDraft(draft: NewDraftInputType, userId: Int): CreateDraft
+  createDraftRequest: CreateDraftRequest
+  createEasyOrder(contents: String, drafts: [Upload], files: [Upload], isOrderMore: Boolean = false, isVisit: Boolean = false, userId: Int): CreateEasyOrder
+  createGymNotification(classMasterName: String, contents: String, eventDate: String, images: [Upload], sendDatetime: String, sendType: String, title: String): CreateGymNotification
+  createInventoryOrder(productIds: [Int]): CreateInventoryOrder
+  createInventoryReceived(inventoryReceivedDetails: [InventoryReceivedInputType]): CreateInventoryReceived
+  createMultipleDrafts(categoryName: String, draft: DraftInputType, subCategoryName: String, userId: Int): CreateMultipleDrafts
+  createNewDraft(draft: NewDraftInputType!, file: Upload, sizes: [DraftSizeInputType], subcategoryName: String, userId: Int): CreateNewDraft
+  createNewInventory: CreateNewInventory
+  createOrUpdateAdditionalDeliveryPrice(additionalDeliveryPrice: Int, address: String, zipCode: String, zipCodeId: Int): CreateOrUpdateAdditionalDeliveryPrice
+  createOrUpdateAddress(address: String, addressId: Int, addressName: String, default: Boolean, detailAddress: String, phone: String, receiver: String, userId: Int, zipCode: String): CreateOrUpdateAddress
+  createOrUpdateAdmin(group: String, user: UserInputType): CreateOrUpdateAdmin
+  createOrUpdateAgency(agency: AgencyInputType): CreateOrUpdateAgency
+  createOrUpdateBankAccount(accounts: [BankInputType], deletedAccountIds: [Int]): CreateOrUpdateBankAccount
+  createOrUpdateBanner(banners: [BannerInputType], deletingBannerIds: [Int]): CreateOrUpdateBanner
+  createOrUpdateClass(classDetails: ClassDetailInputType, classMaster: ClassMasterInputType, weekdays: [Int]!): CreateOrUpdateClass
+  createOrUpdateDeliveryAgency(deletedAgencyIds: [Int], deliveryAgencies: [DeliveryAgencyInputType]): CreateOrUpdateDeliveryAgency
+  createOrUpdateDraft(draft: NewDraftInputType, subCategory: String, userId: Int): CreateOrUpdateDraft
+  createOrUpdateFaq(contents: String, faqId: Int, title: String): CreateOrUpdateFaq
+  createOrUpdateGym(agencyId: Int, agencyIdentification: String, event: Boolean, gym: GymInputType, gymUser: UserInputType, isActive: Boolean!, referralCode: String): CreateOrUpdateGym
+  createOrUpdateLevel(delete: Boolean, levelObject: LevelInputType): CreateOrUpdateLevel
+  createOrUpdateNotice(contents: String, noticeId: Int, title: String, userId: Int): CreateOrUpdateNoice
+  createOrUpdateProductMaster(deletedImageIds: [Int], newImages: [Upload], productMaster: ProductMasterInputType, products: [ProductInputType]): CreateOrUpdateProductMaster
+  createOrUpdateSubcontractor(subcontractor: SubcontractorInputType): CreateOrUpdateSubcontractor
+  createOrUpdateUserAddress(addedAddress: AddressInputType, defaultAddressId: Int, gymId: Int): CreateOrUpdateUserAddress
+  createOrUpdateUserRefundAccount(gymId: Int, refundAccountBank: String, refundAccountNo: String): CreateOrUpdateUserRefundAccount
+  createOrUpdateWork(orderDetailId: Int, subcontractorId: Int, work: WorkInputType): CreateOrUpdateWork
+  createReturnRequest(address: String, csRequestId: Int, detailAddress: String, memo: String, orderDetails: [OrderDetailInputType], phone: String, receiver: String, returnReason: String = "", zipCode: String): CreateReturnRequest
+  createStudent(parent: ParentInputType, student: StudentInputType): CreateStudent
+  createTaOrder(address: String, detailAddress: String, gymId: Int, orderedProducts: [OrderedProductInputType], zipCode: String): CreateTaOrder
+  createUserChangeRequest(changeReason: String = "", changingProductId: Int, changingQuantity: Int, deliveryAddress: String, deliveryDetailAddress: String, deliveryPhone: String, deliveryReceiver: String, deliveryZipCode: String, memo: String, orderDetailId: Int, pickUpAddress: String, pickUpDetailAddress: String, pickUpPhone: String, pickUpReceiver: String, pickUpZipCode: String): CreateUserChangeRequest
+  createUserReturnRequest(address: String, detailAddress: String, orderDetailId: Int!, phone: String, quantity: Int!, receiver: String, returnReason: String, zipCode: String): CreateUserReturnRequest
+  csCancelOrder(csRequestId: Int!): CsCancelOrder
+
+  """
+  고객 문의로 인한 스마터머니 충전. 
+  
+  description이 null 이면 '고객문의로 인한 충전'으로 세팅
+  """
+  csChargeSmarterMoney(amount: Int!, description: String, userId: Int!): CsChargeSmarterMoney
+  csPartialCancel(csRequestId: Int, orderDetailIds: [Int]): CsPartialCancel
+
+  """
+  TODO
+  고객 문의로 인한 스마터머니 차감. 
+  """
+  csSubtractSmarterMoney(amount: Int!, description: String, userId: Int!): CsSubtractSmarterMoney
+  declineClaim(claimIds: [Int]): DeclineClaim
+  deleteAbsentRequest(absentRequestId: Int): DeleteAbsentRequest
+  deleteAddress(addressId: Int!): DeleteAddress
+  deleteAuditionDetail(auditionDetailId: Int): DeleteAuditionDetail
+  deleteAuditionMaster(id: ID): DeleteAuditionMaster
+  deleteBankAccount(bankAccountId: Int): DeleteInfoBankAccount
+  deleteClassDetail(classDetailId: Int): DeleteClassDetail
+  deleteClassMaster(classMasterIds: [Int]): DeleteClassMaster
+  deleteColor(deletingColor: String, productMasterId: Int): DeleteColor
+  deleteContentReply(contentId: Int): DeleteContentReply
+  deleteCsRequestContents(csRequestContentId: Int): DeleteCsRequestContents
+  deleteCsRequestMemo(csRequestMemoId: Int): DeleteCsRequestMemo
+  deleteDrafts(deletedDraftIds: [Int]): DeleteDrafts
+  deleteEasyOrderRequests(easyOrderIds: [Int]): DeleteEasyOrderRequests
+  deleteFaq(faqId: Int): DeleteFaq
+  deleteGymNotification(gymNotificationId: Int): DeleteGymNotification
+  deleteInfoDelivery(deliveryAgencyId: Int): DeleteDeliveryAgency
+  deleteInventoryOrderDetails(inventoryOrderDetailIds: [Int]): DeleteInventoryOrderDetails
+  deleteLevel(deleteLevelIds: [Int]): DeleteLevel
+  deleteMultipleDrafts(categoryName: String, subCategoryName: String, userId: Int): DeleteMultipleDrafts
+  deleteNotice(noticeId: Int): DeleteNotice
+  deleteOrderMasters(orderNumbers: [String]): DeleteOrderMasters
+  deleteSize(deletingSize: String, productMasterId: Int): DeleteSize
+  deleteStudent(studentId: Int): DeleteStudent
+  deleteTokenCookie: DeleteJSONWebTokenCookie
+  depositWithoutAccount(address: String!, couponId: Int, deliveryRequest: String, detailAddress: String, orderMasterId: Int!, phone: String!, receiver: String!, smarterMoney: Int, zipCode: String!): DepositWithoutAccount
+  easyOrderToPaid(orderNumbers: [String]): EasyOrderToPaid
+  finishDraftRequest(draftRequestId: Int): FinishDraftRequest
+  gymNotificationRead(gymNotificationReceiverId: Int): GymNotificationRead
+  gymOrderHistoryByAgency(agencyName: String, dateFrom: Date, dateTo: Date): GymOrderHistoryByAgency
+  helloWorld(number: Int): HelloWorld
+  isApproved(classPaymentMasterIds: [Int], date: String): IsApproved
+  issueManualCoupon(addressZipCodeId: Int, condition: String, couponMasterId: Int!, couponMessage: String!, expireDay: Int!, gymIds: [Int]!, issueNumber: Int!, searchType: String, thresholdAmount: Int): IssueManualCoupon
+  me: Me
+  orderBySmarterMoney(address: String!, couponId: Int, deliveryRequest: String, detailAddress: String, orderMasterId: Int!, phone: String!, receiver: String!, smarterMoney: Int!, zipCode: String!): OrderBySmarterMoney
+  otherClassAttendance(attendanceMasterId: Int, studentIds: [Int]): OtherClassAttendance
+  paidCheck(classPaymentMasterId: Int, method: String): PaidCheck
+  pickUp(orderMasterIds: [Int]): PickUp
+  placeOrder(isPickUp: Boolean = false, orderedProducts: [OrderedProductInputType], userId: Int): PlaceOrder
+  proceedPaidOrderDetails(orderDetailIds: [Int]): ProceedPaidOrderDetails
+  proceedPaidOrders(orderMasterIds: [Int]): ProceedPaidOrders
+  readNotification(notificationId: Int): ReadNotification
+  readNotifications: ReadNotifications
+  readyForDelivery(orderDetailNumbers: [String]): ReadyForDelivery
+  refreshToken(refreshToken: String): Refresh
+  refundOrder(orderDetailId: Int!, reason: String!): RefundOrder
+  removeFcmToken(fcmToken: String): RemoveFcmToken
+  requestClaim(orderDetailId: Int, quantity: Int, reason: String, type: String): RequestClaim
+  saveInventoryOrder(dateScheduledReceiving: DateTime, inventoryOrderDetails: [InventoryOrderInputType], inventoryOrderMasterId: Int, supplierId: Int): SaveInventoryOrder
+  saveMemo(memo: String, orderMasterId: Int): SaveMemo
+  selectAddress(addressId: Int, newAddress: AddressInputType): SelectAddress
+  sendClassPaymentAlarm(classMasterId: Int, date: String): SendClassPaymentAlarm
+  sendCode(identification: String, phoneNumber: String): SendCode
+  sendNotificationAlarmAgain(gymNotificationIds: [Int]): SendNotificationAlarmAgain
+  setFcmToken(fcmToken: String, identification: String): SetFcmToken
+  setPassword(confirmPassword: String, newPassword: String, userId: Int): SetPassword
+  startInventoryOrder(inventoryOrderMasterId: Int): StartInventoryOrder
+  startShipping(deliveryAgencyId: Int, orderDetailIds: [Int], photo: Upload, trackingNumber: String): StartShipping
+  studentAttendance(absentReason: String, attendanceIds: [Int], state: String): StudentAttendance
+  test(input: Date): Test
+  testNumber(number1: Int, number2: Int): TestNumber
+  toggleActive(orderMasterId: Int): ToggleActive
+  tokenAuth(fcmToken: String, identification: String!, password: String!): ObtainJsonWebToken
+  updateAddress(address: String, addressId: Int, deliveryMemo: String, detailAddress: String, isDefault: Boolean, name: String, page: Int, phone: String, receiver: String, zipCode: String): UpdateAddress
+  updateBrand(deletingBrandIds: [Int], updatingBrands: [BrandInputType]): UpdateBrand
+  updateCategory(deletingCategoryIds: [Int], updatingCategories: [CategoryInputType]): UpdateCategory
+  updateChangeRequest(changeReason: String, changeRequestDetails: [ChangeDetailInputType], changeRequestId: Int, deliveryAddress: String, deliveryAgencyId: Int, deliveryDetailAddress: String, deliveryPhone: String, deliveryPrice: Int, deliveryReceiver: String, deliveryZipCode: String, isChangedPriceExempt: Boolean, isDeliveryPriceExempt: Boolean, memo: String, pickUpAddress: String, pickUpDetailAddress: String, pickUpPhone: String, pickUpReceiver: String, pickUpZipCode: String, trackingNumber: String): UpdateChangeRequest
+  updateClassPaymentMaster(classPaymentId: Int, memo: String, price: Int): UpdateClassPaymentMaster
+  updateContentReply(contents: String, replyId: Int): UpdateContentReply
+  updateCsRequest(category: String, csRequestId: Int, csState: String, memo: String, orderMasterId: Int, reason: String): UpdateCsRequest
+  updateCsRequestContents(contentId: Int, contents: String): UpdateCsRequestContents
+  updateCsRequestState(csRequestId: Int, state: String): UpdateCsRequestState
+  updateDraftImage(draftId: Int, image: Upload): UpdateDraftImage
+  updateDrafts(drafts: [DraftInputType], userId: Int): UpdateDrafts
+  updateExtraPriceDelivery(price: Int): UpdateExtraPriceDelivery
+  updateGym(gym: GymInputType): UpdateGym
+  updateGymMemo(gymId: Int!, memo: String!): UpdateGymMemo
+  updateGymNotification(classMasterName: String, contents: String, eventDate: String, gymNotificationId: Int, images: [Upload], sendDatetime: String, sendType: String, title: String): UpdateGymNotification
+  updateInventoryOrder(inventoryOrderMasterId: Int): UpdateInventoryOrder
+  updateMembership(condition: Int, max: Int, name: String, percentage: Float, threshold: Int): UpdateMembership
+  updateMemo(memo: String, orderMasterId: Int): UpdateMemo
+  updateNewDraft(draft: NewDraftInputType!, draftId: Int!, file: Upload, sizes: [DraftSizeInputType]): UpdateNewDraft
+  updateNewMemberCoupon(countPerIssue: Int, expireDay: Int, price: Int): UpdateNewMemberCoupon
+  updateParent(parentObject: ParentInputType): UpdateParent
+  updateProductMasterMemo(memo: String, productMasterId: Int): UpdateProductMasterMemo
+  updateReferralCoupon(countPerIssue: Int, expireDay: Int, price: Int): UpdateReferralCoupon
+  updateReturn(address: String, deliveryPrice: Int, detailAddress: String, isDeliveryPriceExempt: Boolean, memo: String, phone: String, receiver: String, returnDetails: [ReturnDetailInputType], returnId: Int, returnReason: String, zipCode: String): UpdateReturn
+  updateStudents(students: [StudentInputType]): UpdateStudents
+  updateSupplier(supplier: SupplierInputType): UpdateSupplier
+  updateTaOrder(priceDelivery: Int, pricePaid: Int, taOrderDetails: [TaOrderDetailInputType], taOrderMasterId: Int): UpdateTaOrder
+  updateUserInfo(address: String, agencyName: String, detailAddress: String, gymId: Int, gymName: String, memo: String, phone: String, refundAccountBank: String, refundAccountNo: String, refundAccountOwner: String, userName: String, zipCode: String): UpdateUserInfo
+  updateWork(memo: String, workId: Int): UpdateWork
+  updateWorkMemos(memoByAdmin: String, memoByPreWorker: String, memoBySubcontractor: String, workId: Int): UpdateWorkMemos
+  uploadProfileImage(profileImage: Upload): UploadProfileImage
+  userCancelOrder(orderMasterId: Int!): UserCancelOrder
+  verifyToken(fcmToken: String, token: String): VerifyToken
+  withdraw: Withdraw
+  wrongDelivery(orderDetailIds: [Int], orderMasterId: Int): WrongDelivery
+}
+
+input NewDraftInputType {
+  font: String = "\\uc5c6\\uc74c"
+  memo: String = ""
+  priceWork: Int!
+  priceWorkLabor: Int!
+  printing: String = "\\uc5c6\\uc74c"
+  threadColor: String = "\\uc5c6\\uc74c"
+}
+
+type NewDraftType {
+  categoryName: String
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  draftRequest: DraftRequestNode
+
+  """"""
+  font: String
+
+  """"""
+  id: ID!
+  image: String
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  memo: String
+
+  """"""
+  orders(after: String, before: String, first: Int, id: Float, last: Int, offset: Int, orderMaster_DateCreated_Gte: DateTime, orderMaster_DateCreated_Lte: DateTime, orderMaster_User_Gym_Name_Icontains: String, state: String): OrderDetailNodeConnection!
+
+  """"""
+  priceWork: Int
+
+  """"""
+  priceWorkLabor: Int
+
+  """"""
+  printing: String
+  sizes: [DraftSizeType]
+
+  """"""
+  subCategory: CategoryType
+  subCategoryName: String
+
+  """"""
+  threadColor: String
+
+  """"""
+  user: UserNode!
+}
+
+"""An object with an ID"""
+interface Node {
+  """The ID of the object."""
+  id: ID!
+}
+
+type NoticeNode implements Node {
+  """"""
+  contents: String!
+
+  """"""
+  dateCreated: DateTime
+
+  """"""
+  dateUpdated: DateTime!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isActive: Boolean!
+  noticeId: Int
+
+  """"""
+  title: String!
+
+  """"""
+  user: UserNode!
+}
+
+type NoticeNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [NoticeNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `NoticeNode` and its cursor."""
+type NoticeNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: NoticeNode
+}
+
+type NotificationNode implements Node {
+  """"""
+  contents: String!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateRead: DateTime
+
+  """The ID of the object."""
+  id: ID!
+  notificationId: Int
+
+  """"""
+  notificationType: String!
+
+  """"""
+  route: String
+
+  """"""
+  title: String!
+
+  """"""
+  user: UserNode!
+}
+
+type NotificationNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [NotificationNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `NotificationNode` and its cursor."""
+type NotificationNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: NotificationNode
+}
+
+type ObtainJsonWebToken {
+  isActive: Boolean
+  payload: GenericScalar!
+  refreshExpiresIn: Int!
+  refreshToken: String!
+  token: String!
+  user: UserType
+}
+
+type OrderBySmarterMoney {
+  message: String
+  orderMaster: OrderMasterType
+  success: Boolean
+}
+
+input OrderDetailInputType {
+  id: Int
+  quantity: Int
+}
+
+type OrderDetailNode implements Node {
+  """"""
+  changeDetails: [ChangeDetailType!]!
+
+  """"""
+  changehistorySet: [ChangeHistoryType!]!
+
+  """"""
+  claims: [ClaimType!]!
+
+  """"""
+  csOrderChangeHistories: [PartialCancelHistoryType!]!
+
+  """"""
+  dateToBeShipped: Date
+
+  """"""
+  delivery: DeliveryType
+
+  """"""
+  draft: DraftType
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isChanged: Boolean!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  isDirectDelivery: Boolean!
+
+  """"""
+  isReturned: Boolean!
+
+  """"""
+  newDraft: NewDraftType
+
+  """"""
+  orderDetailNumber: String!
+
+  """"""
+  orderMaster: OrderMasterNode!
+
+  """"""
+  priceConsumer: Int!
+
+  """"""
+  priceGym: Int!
+
+  """"""
+  priceOption: Int!
+
+  """"""
+  priceParent: Int!
+
+  """"""
+  priceProducts: Int!
+
+  """"""
+  priceTotal: Int!
+
+  """"""
+  priceVendor: Int!
+
+  """"""
+  priceWork: Int!
+
+  """"""
+  priceWorkLabor: Int!
+
+  """"""
+  product: ProductNode!
+
+  """"""
+  productMaster: ProductMasterNode
+
+  """"""
+  quantity: Int!
+
+  """"""
+  returnDetails: [ReturnDetailType!]!
+
+  """"""
+  state: String!
+
+  """"""
+  studentNames: [String!]!
+
+  """"""
+  taOrderDetails: [TaOrderDetailType!]!
+
+  """"""
+  userRequest: String
+
+  """"""
+  work: WorkNode
+}
+
+type OrderDetailNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [OrderDetailNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `OrderDetailNode` and its cursor."""
+type OrderDetailNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: OrderDetailNode
+}
+
+type OrderDetailType {
+  """"""
+  changeDetails: [ChangeDetailType!]!
+
+  """"""
+  changehistorySet: [ChangeHistoryType!]!
+
+  """"""
+  claims: [ClaimType!]!
+
+  """"""
+  csOrderChangeHistories: [PartialCancelHistoryType!]!
+
+  """"""
+  dateToBeShipped: Date
+
+  """"""
+  delivery: DeliveryType
+  draft: NewDraftType
+
+  """"""
+  id: ID!
+
+  """"""
+  isChanged: Boolean!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  isDirectDelivery: Boolean!
+
+  """"""
+  isReturned: Boolean!
+
+  """"""
+  newDraft: NewDraftType
+  orderDetailId: Int
+
+  """"""
+  orderDetailNumber: String!
+
+  """"""
+  orderMaster: OrderMasterNode!
+
+  """"""
+  priceConsumer: Int!
+
+  """"""
+  priceGym: Int!
+
+  """"""
+  priceOption: Int!
+
+  """"""
+  priceParent: Int!
+
+  """"""
+  priceProducts: Int!
+
+  """"""
+  priceTotal: Int!
+
+  """"""
+  priceVendor: Int!
+
+  """"""
+  priceWork: Int!
+
+  """"""
+  priceWorkLabor: Int!
+
+  """"""
+  product: ProductNode!
+
+  """"""
+  productMaster: ProductMasterNode
+
+  """"""
+  quantity: Int!
+  recentWork: WorkType
+
+  """"""
+  returnDetails: [ReturnDetailType!]!
+
+  """"""
+  state: String!
+
+  """"""
+  studentNames: [String!]!
+
+  """"""
+  taOrderDetails: [TaOrderDetailType!]!
+  thumbnail: String
+
+  """"""
+  userRequest: String
+
+  """"""
+  work: WorkNode
+}
+
+type OrderDetailsWithChildrenType {
+  addedOrderMasters: [OrderMasterNode]
+  orderDetails: [OrderDetailType]
+}
+
+type OrderMasterNode implements Node {
+  """"""
+  address: String!
+  agencyName: String
+
+  """"""
+  cancelorderrequestSet: [CancelOrderRequestType!]!
+
+  """"""
+  children(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, id: Float, last: Int, offset: Int, user_Gym_Name_Icontains: String): OrderMasterNodeConnection!
+
+  """"""
+  coupon: CouponType
+
+  """"""
+  couponUseHistories: [CouponUseHistoryType!]!
+
+  """"""
+  csOrderChangeHistories: [PartialCancelHistoryType!]!
+
+  """"""
+  csRequests: [CsRequestType!]!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateStateChanged: DateTime
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  deliveryRequest: String
+
+  """"""
+  detailAddress: String
+  details: [OrderDetailType]
+
+  """"""
+  easyOrder(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String, user_Phone_Icontains: String): EasyOrderNodeConnection!
+
+  """"""
+  email: String
+  gymName: String
+  hasUserRequest: Boolean
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isActive: Boolean!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  isPickUp: Boolean!
+  memo: String
+
+  """"""
+  memoByAdmin: String
+
+  """"""
+  memoByBuyer: String
+
+  """"""
+  memoBySubcontractor: String
+  orderMasterId: Int
+
+  """"""
+  orderNumber: String!
+  orderState: String
+  orderer: String
+
+  """"""
+  parentOrder: OrderMasterNode
+  paymentRequest: PaymentRequestType
+  paymentSuccess: PaymentSuccessType
+
+  """"""
+  payments: [PaymentType!]!
+
+  """"""
+  phone: String!
+
+  """"""
+  priceDelivery: Int!
+  priceToPay: Int
+  priceTotal: Int
+  priceTotalProducts: Int
+  priceTotalWork: Int
+  priceTotalWorkLabor: Int
+
+  """"""
+  receiver: String!
+  smarterMoney: Int
+  smarterMoneyHistory: SmarterMoneyHistoryType
+  states: [String]
+
+  """"""
+  taOrderMasters: [TaOrderMasterType!]!
+  user: UserType
+
+  """"""
+  works(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, details_State_In: [String], first: Int, last: Int, offset: Int, state: String, subcontractor_IsOutWorking: Boolean, subcontractor_Name: String, subcontractor_Name_Icontains: String): WorkNodeConnection!
+
+  """"""
+  zipCode: String
+}
+
+type OrderMasterNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [OrderMasterNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `OrderMasterNode` and its cursor."""
+type OrderMasterNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: OrderMasterNode
+}
+
+type OrderMasterType {
+  additionalOrderDetails: [OrderDetailType]
+  additionalOrders: [OrderMasterType]
+
+  """"""
+  address: String!
+  agencyName: String
+
+  """"""
+  cancelorderrequestSet: [CancelOrderRequestType!]!
+
+  """"""
+  children(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, id: Float, last: Int, offset: Int, user_Gym_Name_Icontains: String): OrderMasterNodeConnection!
+  coupon: CouponType
+
+  """"""
+  couponUseHistories: [CouponUseHistoryType!]!
+
+  """"""
+  csOrderChangeHistories: [PartialCancelHistoryType!]!
+
+  """"""
+  csRequests: [CsRequestType!]!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateStateChanged: DateTime
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  deliveryRequest: String
+
+  """"""
+  detailAddress: String
+  details: [OrderDetailType]
+
+  """"""
+  easyOrder(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String, user_Phone_Icontains: String): EasyOrderNodeConnection!
+
+  """"""
+  email: String
+  gymName: String
+
+  """"""
+  id: ID!
+
+  """"""
+  isActive: Boolean!
+  isChild: Boolean
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  isPickUp: Boolean!
+  memo: String
+
+  """"""
+  memoByAdmin: String
+
+  """"""
+  memoByBuyer: String
+
+  """"""
+  memoBySubcontractor: String
+  orderDetails: [OrderDetailType]
+  orderMasterId: Int
+  orderName: String
+
+  """"""
+  orderNumber: String!
+  orderState: String
+  orderer: String
+
+  """"""
+  parentOrder: OrderMasterNode
+  paymentRequest: PaymentRequestType
+  paymentSuccess: PaymentSuccessType
+
+  """"""
+  payments: [PaymentType!]!
+
+  """"""
+  phone: String!
+
+  """"""
+  priceDelivery: Int!
+  priceToPay: Int
+  priceTotal: Int
+  priceTotalProducts: Int
+
+  """"""
+  receiver: String!
+  smarterMoney: Int
+  smarterMoneyHistory: SmarterMoneyHistoryType
+
+  """"""
+  taOrderMasters: [TaOrderMasterType!]!
+
+  """"""
+  user: UserNode!
+
+  """"""
+  works(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, details_State_In: [String], first: Int, last: Int, offset: Int, state: String, subcontractor_IsOutWorking: Boolean, subcontractor_Name: String, subcontractor_Name_Icontains: String): WorkNodeConnection!
+
+  """"""
+  zipCode: String
+}
+
+input OrderedProductInputType {
+  dateToBeShipped: String
+  draftId: Int
+  isDirectDelivery: Boolean
+  productId: Int
+  productMasterId: Int
+  quantity: Int
+  studentNames: [String]
+  userRequest: String
+}
+
+type OtherClassAttendance {
+  isDuplicated: Boolean
+  success: Boolean
+}
+
+"""
+The Relay compliant `PageInfo` type, containing data necessary to paginate this connection.
+"""
+type PageInfo {
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+}
+
+type PaidCheck {
+  success: Boolean
+}
+
+input ParentInputType {
+  address: String
+  detailAddress: String
+  id: Int
+  name: String
+  phone: String
+  relationshipName: String
+  supporterName: String
+  supporterPhone: String
+  supporterRelationship: String
+  zipCode: String
+}
+
+type ParentType {
+  """"""
+  address: String
+
+  """"""
+  detailAddress: String
+
+  """"""
+  id: ID!
+
+  """"""
+  notificationReceivers(after: String, before: String, first: Int, last: Int, offset: Int): GymNotificationReceiverNodeConnection!
+
+  """"""
+  relationship: RelationshipType!
+
+  """"""
+  students: [StudentType!]!
+
+  """"""
+  supporterName: String
+
+  """"""
+  supporterPhone: String
+
+  """"""
+  supporterRelationship: RelationshipType
+
+  """"""
+  user: UserNode!
+
+  """"""
+  zipCode: String
+}
+
+type PartialCancelHistoriesType {
+  partialCancelHistories: [PartialCancelHistoryType]
+  totalCount: Int
+}
+
+type PartialCancelHistoryType {
+  """"""
+  canceledQuantity: Int!
+
+  """"""
+  color: String!
+
+  """"""
+  csRequest: CsRequestType!
+  csRequestId: Int
+
+  """"""
+  csRequestNumber: String!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  description: String
+
+  """"""
+  gymName: String!
+
+  """"""
+  id: ID!
+
+  """"""
+  orderDetail: OrderDetailNode!
+
+  """"""
+  orderMaster: OrderMasterNode!
+  orderMasterId: Int
+
+  """"""
+  orderNumber: String!
+
+  """"""
+  priceProduct: Int!
+
+  """"""
+  priceTotal: Int!
+
+  """"""
+  productName: String!
+
+  """"""
+  reason: String
+
+  """"""
+  size: String!
+}
+
+type PaymentPerMonthType {
+  amount: Int
+  month: String
+}
+
+type PaymentRequestType {
+  """"""
+  amount: Int!
+
+  """"""
+  customerName: String!
+
+  """"""
+  id: ID!
+
+  """"""
+  method: String!
+
+  """"""
+  orderId: String!
+
+  """"""
+  orderName: String!
+
+  """"""
+  requestedAt: DateTime!
+}
+
+type PaymentSuccessType {
+  """"""
+  amount: Int
+
+  """"""
+  approvedAt: DateTime
+
+  """"""
+  balanceAmount: Int
+
+  """"""
+  country: String
+
+  """"""
+  currency: String
+
+  """"""
+  id: ID!
+
+  """"""
+  mId: String
+
+  """"""
+  method: String
+
+  """"""
+  orderId: String
+
+  """"""
+  paymentKey: String
+
+  """"""
+  requestedAt: DateTime
+
+  """"""
+  status: String
+
+  """"""
+  suppliedAmount: Int
+
+  """"""
+  texFreeAmount: Int
+
+  """"""
+  totalAmount: Int
+
+  """"""
+  vat: Int
+
+  """"""
+  version: String
+}
+
+type PaymentType {
+  """"""
+  accountBalanceAfterTransaction: Int
+
+  """"""
+  accountFrom: String
+
+  """"""
+  accountInPrintContent: String
+
+  """"""
+  accountResultCode: String
+
+  """"""
+  accountTo: String
+
+  """"""
+  accountTransactionSeqNo: String
+
+  """"""
+  amount: Int!
+
+  """"""
+  cardBalanceAmount: Int
+
+  """"""
+  cardCompany: String!
+
+  """"""
+  cardCurrency: String
+
+  """"""
+  cardLastTransactionKey: String
+
+  """"""
+  cardNumber: String!
+
+  """"""
+  cardPaymentKey: String
+
+  """"""
+  cardStatus: String
+
+  """"""
+  cardSuppliedAmount: Int
+
+  """"""
+  cardTaxFreeAmount: Int
+
+  """"""
+  cardTransactionKey: String
+
+  """"""
+  cardVat: Int
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  id: ID!
+
+  """"""
+  orderMaster: OrderMasterNode!
+
+  """"""
+  payMethod: String!
+}
+
+type PickUp {
+  success: Boolean
+}
+
+type PlaceOrder {
+  orderMaster: OrderMasterType
+  success: Boolean
+}
+
+type ProceedPaidOrderDetails {
+  success: Boolean
+}
+
+type ProceedPaidOrders {
+  success: Boolean
+}
+
+type ProductImageType {
+  """"""
+  id: ID!
+
+  """"""
+  image: String!
+
+  """"""
+  productMaster: ProductMasterNode!
+  url: String
+}
+
+input ProductInputType {
+  color: String!
+  expectedInventoryQuantity: Int
+  goalInventoryQuantity: Int
+  id: Int
+  inventoryQuantity: Int
+  isDeleted: Boolean
+  modelNumber: String!
+  name: String!
+  priceAdditional: Int
+  productMasterId: Int
+  size: String!
+  state: String!
+  thresholdInventoryQuantity: Int
+}
+
+input ProductMasterInputType {
+  brandId: Int!
+  categoryId: Int!
+  deliveryType: String!
+  descriptionImage: Upload
+  goalInventoryQuantity: Int
+  id: Int
+  maxQuantityPerBox: Int
+  memo: String
+  name: String!
+  needDraft: Boolean = false
+  priceConsumer: Int!
+  priceDelivery: Int!
+  priceGym: Int!
+  priceParent: Int!
+  priceVendor: Int!
+  productNumber: String!
+  state: String!
+  subCategoryId: Int!
+  supplierId: Int!
+  thresholdInventoryQuantity: Int
+  thumbnail: Upload
+}
+
+type ProductMasterNode implements Node {
+  """"""
+  brand: BrandType!
+
+  """"""
+  category: CategoryType!
+
+  """"""
+  changehistorySet: [ChangeHistoryType!]!
+  colors: [String]
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  defaultDraft: DraftType
+
+  """"""
+  deliveryType: String!
+  descriptionImage: String
+
+  """"""
+  displayOrder: Int!
+
+  """"""
+  draft: [DraftType!]!
+  drafts(userId: Int): [NewDraftType]
+
+  """"""
+  goalInventoryQuantity: Int
+
+  """The ID of the object."""
+  id: ID!
+  imageUrls: [String]
+  images: [ProductImageType]
+
+  """"""
+  maxQuantityPerBox: Int
+
+  """"""
+  memo: String
+
+  """"""
+  name: String!
+
+  """"""
+  needDraft: Boolean!
+
+  """"""
+  orderdetailSet(after: String, before: String, first: Int, id: Float, last: Int, offset: Int, orderMaster_DateCreated_Gte: DateTime, orderMaster_DateCreated_Lte: DateTime, orderMaster_User_Gym_Name_Icontains: String, state: String): OrderDetailNodeConnection!
+
+  """"""
+  priceConsumer: Int!
+
+  """"""
+  priceDelivery: Int!
+
+  """"""
+  priceGym: Int!
+
+  """"""
+  priceParent: Int!
+
+  """"""
+  priceVendor: Int!
+  productMasterId: Int
+
+  """"""
+  productNumber: String!
+  products(state: String): [ProductType]
+  sizes: [String]
+
+  """"""
+  state: String!
+
+  """"""
+  subCategory: CategoryType!
+
+  """"""
+  supplier: SupplierType!
+
+  """"""
+  thresholdInventoryQuantity: Int
+  thumbnail: String
+}
+
+type ProductMasterNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [ProductMasterNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `ProductMasterNode` and its cursor."""
+type ProductMasterNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: ProductMasterNode
+}
+
+type ProductMasterType {
+  """"""
+  brand: BrandType!
+
+  """"""
+  category: CategoryType!
+
+  """"""
+  changehistorySet: [ChangeHistoryType!]!
+  colors: [String]
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  defaultDraft: DraftType
+
+  """"""
+  deliveryType: String!
+  descriptionImage: String
+
+  """"""
+  displayOrder: Int!
+
+  """"""
+  draft: [DraftType!]!
+  drafts(userId: Int): [NewDraftType]
+
+  """"""
+  goalInventoryQuantity: Int
+
+  """"""
+  id: ID!
+  images: [ProductImageType]
+
+  """"""
+  maxQuantityPerBox: Int
+
+  """"""
+  memo: String
+
+  """"""
+  name: String!
+
+  """"""
+  needDraft: Boolean!
+
+  """"""
+  orderdetailSet(after: String, before: String, first: Int, id: Float, last: Int, offset: Int, orderMaster_DateCreated_Gte: DateTime, orderMaster_DateCreated_Lte: DateTime, orderMaster_User_Gym_Name_Icontains: String, state: String): OrderDetailNodeConnection!
+
+  """"""
+  priceConsumer: Int!
+
+  """"""
+  priceDelivery: Int!
+
+  """"""
+  priceGym: Int!
+
+  """"""
+  priceParent: Int!
+
+  """"""
+  priceVendor: Int!
+  productMasterId: Int
+
+  """"""
+  productNumber: String!
+  products: [ProductType]
+  sizes: [String]
+
+  """"""
+  state: String!
+
+  """"""
+  subCategory: CategoryType!
+
+  """"""
+  supplier: SupplierType!
+
+  """"""
+  thresholdInventoryQuantity: Int
+  thumbnail: String
+}
+
+type ProductMastersType {
+  productMasters: [ProductMasterType]
+  totalCount: Int
+}
+
+type ProductNode implements Node {
+  """"""
+  changedProducts: [ChangeDetailType!]!
+
+  """"""
+  changehistorySet: [ChangeHistoryType!]!
+
+  """"""
+  changingProducts: [ChangeDetailType!]!
+
+  """"""
+  color: String!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  expectedInventoryQuantity: Int!
+
+  """"""
+  goalInventoryQuantity: Int
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  inventoryOrder(after: String, before: String, first: Int, last: Int, offset: Int): InventoryOrderDetailNodeConnection!
+
+  """"""
+  inventoryQuantity: Int!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  lackInventory: Boolean!
+
+  """"""
+  modelNumber: String!
+
+  """"""
+  name: String!
+
+  """"""
+  order(after: String, before: String, first: Int, id: Float, last: Int, offset: Int, orderMaster_DateCreated_Gte: DateTime, orderMaster_DateCreated_Lte: DateTime, orderMaster_User_Gym_Name_Icontains: String, state: String): OrderDetailNodeConnection!
+
+  """"""
+  priceAdditional: Int!
+  productId: Int
+
+  """"""
+  productMaster: ProductMasterNode!
+
+  """"""
+  size: String!
+
+  """"""
+  state: String!
+
+  """"""
+  thresholdInventoryQuantity: Int
+}
+
+type ProductNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [ProductNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `ProductNode` and its cursor."""
+type ProductNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: ProductNode
+}
+
+type ProductStatisticsConnection {
+  """Contains the nodes in this connection."""
+  edges: [ProductStatisticsEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+"""A Relay edge containing a `ProductStatistics` and its cursor."""
+type ProductStatisticsEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: ProductStatisticsType
+  other: String
+}
+
+type ProductStatisticsType implements Node {
+  amount: Int
+  brandName: String
+  categoryName: String
+  dateFrom: String
+  dateTo: String
+
+  """The ID of the object."""
+  id: ID!
+  productName: String
+  subCategoryName: String
+}
+
+type ProductType {
+  category: CategoryType
+
+  """"""
+  changedProducts: [ChangeDetailType!]!
+
+  """"""
+  changehistorySet: [ChangeHistoryType!]!
+
+  """"""
+  changingProducts: [ChangeDetailType!]!
+
+  """"""
+  color: String!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  expectedInventoryQuantity: Int!
+
+  """"""
+  goalInventoryQuantity: Int
+
+  """"""
+  id: ID!
+
+  """"""
+  inventoryOrder(after: String, before: String, first: Int, last: Int, offset: Int): InventoryOrderDetailNodeConnection!
+
+  """"""
+  inventoryQuantity: Int!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  lackInventory: Boolean!
+
+  """"""
+  modelNumber: String!
+
+  """"""
+  name: String!
+
+  """"""
+  order(after: String, before: String, first: Int, id: Float, last: Int, offset: Int, orderMaster_DateCreated_Gte: DateTime, orderMaster_DateCreated_Lte: DateTime, orderMaster_User_Gym_Name_Icontains: String, state: String): OrderDetailNodeConnection!
+
+  """"""
+  priceAdditional: Int!
+  priceProduct: Int
+  productId: Int
+
+  """"""
+  productMaster: ProductMasterNode!
+
+  """"""
+  size: String!
+
+  """"""
+  state: String!
+
+  """"""
+  thresholdInventoryQuantity: Int
+}
+
+type Query {
+  absentHistory(classPaymentMasterId: Int): [AttendanceType]
+  addressZipCodes: [AddressZipCodeType]
+  addresses(userId: Int): [AddressType]
+  agencies(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, name_Icontains: String, offset: Int): AgencyNodeConnection
+  agenciesStatistics(after: String, before: String, dateFrom: Date, dateTo: Date, first: Int, last: Int): AgenciesStatisticsConnection
+  agency(
+    """The ID of the object"""
+    id: ID!
+  ): AgencyNode
+  agencyCalculation(after: String, agency_Name: String, before: String, dateFrom_Gte: DateTime, dateTo_Lte: DateTime, first: Int, last: Int, offset: Int): AgencyCalculateNodeConnection
+  allStudents: [StudentType]
+  attendanceMaster(
+    """The ID of the object"""
+    id: ID!
+  ): AttendanceMasterNode
+  attendanceMasters(after: String, before: String, classMaster_Id: Float, first: Int, last: Int, offset: Int): AttendanceMasterNodeConnection
+  auditionDetail(after: String, auditionMasterId: Int, before: String, first: Int, last: Int): AuditionDetailConnection
+  auditionMaster(
+    """The ID of the object"""
+    id: ID!
+  ): AuditionMasterNode
+  auditionSchedule(date: Date): [AuditionMasterType]
+  bankAccounts: [BankAccountType]
+  banners: [BannerType]
+  brandList(subCategory: String): [String]
+  brands(category: String): [BrandType]
+  calculateDeliveryPrice(csRequestId: Int, orderDetails: [OrderDetailInputType]): Int
+  cancelOrderRequests(end: String, isWithoutDeposit: Boolean, keyword: String, page: Int, start: String, state: String): CancelOrderRequestsType
+  categories(depth: Int, parent: Int): [CategoryType]
+  change(changeId: Int): ChangeRequestType
+  changeDetailOfOrderDetail(orderDetailId: Int!): ChangeDetailType
+  changeHistories(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, product_Name_Icontains: String): ChangeHistoryNodeConnection
+  changeHistory: ChangeHistoryType
+  changeInfo(csRequestId: Int, isChangedPriceExempt: Boolean = false, isDeliveryPriceExempt: Boolean = false, products: [CsProductInputType], totalChangingPrice: Int): ChangeInfoType
+  changeRequest(id: Int!): ChangeRequestType
+  changeRequests(end: String, keyword: String, page: Int, start: String, state: String): ChangesType
+  changingProductInfo(color: String, orderDetailId: Int, quantity: Int, size: String): ChangeProductInfoType
+  chargeOrders(after: String, before: String, first: Int, keyword: String, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String, user_Name_Icontains: String): ChargeOrderNodeConnection
+  claim: ClaimType
+  claims(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String): ClaimNodeConnection
+  classDetails(classMasterId: Int): [ClassDetailType]
+  classMaster(id: Int): ClassMasterType
+  classPaymentMaster(
+    """The ID of the object"""
+    id: ID!
+  ): ClassPaymentMasterNode
+  countNewNotifications: Int
+  couponInfos(couponMasterId: Int, issueCount: Int, subject: String, subjectPrice: Int): CouponInfoType
+  couponMaster(name: String): CouponMasterType
+  couponMasterIssueHistories(couponType: String, end: String, keyword: String, page: Int, start: String): CouponMasterIssueHistoriesType
+  couponMasters(couponType: String, page: Int): CouponMastersType
+  csOrderDetails(orderDetailIds: [Int]): [CsOrderDetailType]
+  csProductMasters(brand: String, category: String, page: Int, state: String, subCategory: String): ProductMastersType
+  csRequest(id: Int!): CsRequestType
+  csRequests(category: String, csState: String, end: String, keyword: String, page: Int, start: String): CsRequestsType
+  currentClasses: [ClassMasterType]
+  customer(id: Int): GymType
+  customers(keyword: String, prevMonthPurchasedAmount: Int, totalPurchasedAmount: Int): [GymType]
+  customersWithTotalCount(addressZipCodeId: Int, page: Int, prevMonthPurchasedAmount: Int, totalPurchasedAmount: Int): CustomersType
+  dateRange: [Date]
+  defaultBankAccount: BankAccountType
+  delivery(deliveryId: Int, orderDetailId: Int): DeliveryType
+  deliveryAgencies: [DeliveryAgencyType]
+  didUseCouponToday: Boolean
+  draft(id: Int!): NewDraftType
+  draftRequest(
+    """The ID of the object"""
+    id: ID!
+  ): DraftRequestNode
+  draftRequests(after: String, before: String, first: Int, keyword: String, last: Int, offset: Int, state: String): DraftRequestNodeConnection
+  drafts(subCategoryName: String, userId: Int): [NewDraftType]
+  easyOrder(
+    """The ID of the object"""
+    id: ID!
+  ): EasyOrderNode
+  easyOrders(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, keyword: String, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String, user_Phone_Icontains: String): EasyOrderNodeConnection
+  extraPriceDelivery: ExtraPriceDeliveryType
+  faqs(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, isActive: Boolean, last: Int, offset: Int): FaqNodeConnection
+  gym(
+    """The ID of the object"""
+    id: ID!
+  ): GymNode
+  gymAbsentRequests(month: Int, year: Int): [AbsentRequestType]
+  gymAccountInfo: GymBankAccountType
+  gyms(after: String, agencyId: ID, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, draftExists: Boolean, first: Int, keyword: String, last: Int, membership_Name: String, name_Icontains: String, offset: Int): GymNodeConnection
+  gymsSmarterMoneyHistories(keyword: String, month: Int, page: Int, year: Int): SmarterMoneyHistoriesType
+  gymsStatistics(after: String, before: String, dateFrom: Date, dateTo: Date, first: Int, last: Int): GymsStatisticsConnection
+  inventoryOrder(
+    """The ID of the object"""
+    id: ID!
+  ): InventoryOrderMasterNode
+  inventoryOrders(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String, state_In: [String]): InventoryOrderMasterNodeConnection
+  inventoryReceivedDetails(after: String, before: String, first: Int, last: Int, offset: Int): InventoryReceivedDetailNodeConnection
+  inventoryReceivedMaster(
+    """The ID of the object"""
+    id: ID!
+  ): InventoryReceivedMasterNode
+  inventoryReceivedMasters(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String): InventoryReceivedMasterNodeConnection
+  irisSalesStatistics(dateFrom: Date, dateTo: Date): IrisStatisticsType
+  isAdmin(token: String): Boolean
+  isApprovedClassPaymentMasters(after: String, before: String, classMaster_Name: String, first: Int, isApproved: Boolean, last: Int, offset: Int, paymentStatus: String, type: String): ClassPaymentMasterNodeConnection
+  isRightPassword(password: String): Boolean
+  issuedCoupons(couponMasterId: Int, couponType: String, end: String, keyword: String, page: Int, start: String): IssuedCouponsType
+  level(id: Int): LevelType
+  me(token: String): UserType
+  memberships: [MembershipType]
+  myAbsentRequests(month: Int, year: Int): [AbsentRequestType]
+  myAddresses: [AddressType]
+  myAuditions(after: String, before: String, first: Int, last: Int, month: Int, offset: Int, year: Int): AuditionMasterNodeConnection
+  myChildren: [StudentType]
+  myChildrenAttendances(after: String, before: String, classMaster_Id: Float, first: Int, last: Int, month: Int, offset: Int, year: Int): AttendanceMasterNodeConnection
+  myChildrenAuditions(after: String, before: String, first: Int, last: Int, month: Int, offset: Int, year: Int): AuditionMasterNodeConnection
+  myChildrenNotifications(after: String, before: String, first: Int, last: Int, month: Int, offset: Int, title_Icontains: String, year: Int): GymNotificationNodeConnection
+  myClassPaymentMasters(after: String, before: String, classMaster_Name: String, first: Int, isApproved: Boolean, last: Int, offset: Int, paymentStatus: String, type: String): ClassPaymentMasterNodeConnection
+  myClasses: [ClassMasterType]
+  myCoupons: [CouponType]
+  myDrafts(subCategoryName: String): [NewDraftType]
+  myEasyOrders(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String, user_Phone_Icontains: String): EasyOrderNodeConnection
+  myGymClassPaymentMasters(after: String, before: String, classMaster_Name: String, filteringDays: Int = 3000, filteringName: String = "", first: Int, isApproved: Boolean, last: Int, offset: Int, paymentStatus: String, type: String): ClassPaymentMasterNodeConnection
+  myGymNotifications(after: String, before: String, first: Int, last: Int, month: Int, offset: Int, title_Icontains: String, year: Int): GymNotificationNodeConnection
+  myLevels: [LevelType]
+  myNotifications(after: String, before: String, dateCreated: DateTime, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, notificationType_In: [String], offset: Int, orderBy: String, user_Groups_Name_Icontains: String, user_Id: Float): NotificationNodeConnection
+  myOrder(
+    """The ID of the object"""
+    id: ID!
+  ): OrderMasterNode
+  myOrderByOrderNumber(orderNumber: String): OrderMasterType
+  myOrders(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, id: Float, last: Int, offset: Int, user_Gym_Name_Icontains: String): OrderMasterNodeConnection
+  mySchools: [SchoolType]
+  mySmarterMoneyHistories(after: String, before: String, first: Int, last: Int, offset: Int, walletId: ID): SmarterMoneyHistoryNodeConnection
+  myStudents(after: String, before: String, classMaster_Name: String, first: Int, last: Int, level_Name: String, name_Icontains: String, offset: Int, school_Name_Icontains: String): StudentNodeConnection
+  myTaOrderMasters(end: String, keyword: String, page: Int, start: String, state: String, token: String!): TaOrderMastersType
+  myWallet: WalletType
+  notices(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, isActive: Boolean, last: Int, offset: Int): NoticeNodeConnection
+  notificationByParent(after: String, before: String, first: Int, last: Int, month: Int, offset: Int, year: Int): GymNotificationReceiverNodeConnection
+  notificationNode(
+    """The ID of the object"""
+    id: ID!
+  ): NotificationNode
+  notifications(after: String, before: String, dateCreated: DateTime, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, notificationType_In: [String], offset: Int, user_Groups_Name_Icontains: String, user_Id: Float): NotificationNodeConnection
+  orderDetailDelivery(orderDetailId: Int): DeliveryType
+  orderDetailNodes(after: String, before: String, first: Int, id: Float, last: Int, offset: Int, orderMaster_DateCreated_Gte: DateTime, orderMaster_DateCreated_Lte: DateTime, orderMaster_User_Gym_Name_Icontains: String, state: String): OrderDetailNodeConnection
+  orderDetails(orderMasterId: Int): [OrderDetailType]
+  orderDetailsWithChildren(orderMasterId: Int): OrderDetailsWithChildrenType
+  orderMaster(orderMasterId: Int, orderNumber: String): OrderMasterType
+  orderMasterNode(
+    """The ID of the object"""
+    id: ID!
+  ): OrderMasterNode
+  orderMasters(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, id: Float, keyword: String, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String): OrderMasterNodeConnection
+  orderMastersByIds(ids: [Int]): [OrderMasterType]
+  parent(phone: String): ParentType
+  partialCancelHistories(end: String, keyword: String, page: Int, start: String): PartialCancelHistoriesType
+  paymentPerMonth(year: Int): [PaymentPerMonthType]
+  payments: [PaymentType]
+  productList(productMasterId: Int, productName: String): [ProductType]
+  productMaster(id: Int): ProductMasterType
+  productMasterList(brand: String, subCategory: String): [ProductMasterType]
+  productMasterNode(
+    """The ID of the object"""
+    id: ID!
+  ): ProductMasterNode
+  productMasters(after: String, before: String, brand_Name: String, category_Name: String, first: Int, last: Int, name_Icontains: String, offset: Int, orderBy: String, orderdetail_OrderMaster_UserId: ID, state: String, subCategory_Name: String): ProductMasterNodeConnection
+  productStatistics(after: String, before: String, brandName: [String], categoryName: [String], dateFrom: Date, dateTo: Date, first: Int, last: Int, subCategoryName: [String]): ProductStatisticsConnection
+  products(after: String, before: String, first: Int, last: Int, name_Icontains: String, offset: Int, orderBy: String, productMaster_Brand_Name: String, productMaster_Category_Name: String, productMaster_SubCategory_Name: String): ProductNodeConnection
+  recentOrderedProducts(after: String, before: String, brand_Name: String, category_Name: String, first: Int, last: Int, name_Icontains: String, offset: Int, orderdetail_OrderMaster_UserId: ID, state: String, subCategory_Name: String): ProductMasterNodeConnection
+  refundInfo(orderDetailIds: [Int]): ReturnInfoType
+  relationships: [RelationshipType]
+  returnRequest(returnId: Int): ReturnType
+  returnRequests(end: String, keyword: String, page: Int, start: String, state: String): ReturnsType
+  smarterMoneyHistory: SmarterMoneyHistoryNode
+  student(id: Int): StudentType
+  studentScheduleForParent(date: Date): ScheduleForParentType
+  studentStatistics(classMasterName: String, year: Int): [StudentStatisticType]
+  studentTodayClasses(studentId: Int): [ClassDetailType]
+  students(after: String, before: String, classMasterId: Int, first: Int, last: Int, levelId: Int, schoolId: Int): StudentConnection
+  studentsByCode(code: String): [StudentType]
+  studentsByParent: [StudentType]
+  subcontractor(
+    """The ID of the object"""
+    id: ID!
+  ): SubcontractorNode
+  subcontractorCalculation(after: String, before: String, dateFrom_Gte: DateTime, dateTo_Lte: DateTime, first: Int, last: Int, offset: Int, subcontractor_IsOutWorking: Boolean, subcontractor_IsPreWorking: Boolean, subcontractor_Name: String): SubcontractorCalculateNodeConnection
+  subcontractorNodes(after: String, before: String, first: Int, last: Int, name_Icontains: String, offset: Int): SubcontractorNodeConnection
+  subcontractorStatistics(after: String, before: String, dateFrom: Date, dateTo: Date, first: Int, last: Int, subcontractorsName: [String]): SubcontractorStatisticsConnection
+  subcontractors(isOutWorking: Boolean, isPreWorking: Boolean): [SubcontractorType]
+  supplier(id: ID): SupplierType
+  suppliers: [SupplierType]
+  taOrderMaster(taOrderMasterId: Int): TaOrderMasterType
+  todayCancelOrderCountByState(state: String): Int
+  todayChargeOrderCountByState(state: String): Int
+  todayClaimCountByState(state: String): Int
+  todayDeliveryOrderCountByState(state: String): Int
+  todayDraftRequestCountByState(state: String): Int
+  todayEasyOrderCountByState(state: String): Int
+  todayOrderCountByState(state: String): Int
+  useAddress(csRequestId: Int): [AddressType]
+  usedCoupons(couponMasterId: Int, couponType: String, end: String, keyword: String, page: Int, start: String): UsedCouponsType
+  user(
+    """The ID of the object"""
+    id: ID!
+  ): UserNode
+  users(after: String, before: String, first: Int, isAdmin: Boolean, isStaff: Boolean, last: Int, name_Icontains: String, offset: Int): UserNodeConnection
+  wallets(keyword: String, page: Int, sortType: String): WalletsType
+  work(
+    """The ID of the object"""
+    id: ID!
+  ): WorkNode
+  workById(workId: Int): WorkType
+  works(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, details_State_In: [String], first: Int, ids: [Int], keyword: String, last: Int, offset: Int, state: String, subcontractor_IsOutWorking: Boolean, subcontractor_Name: String, subcontractor_Name_Icontains: String): WorkNodeConnection
+}
+
+type ReadNotification {
+  success: Boolean
+}
+
+type ReadNotifications {
+  success: Boolean
+}
+
+type ReadyForDelivery {
+  success: Boolean
+}
+
+type Refresh {
+  payload: GenericScalar!
+  refreshExpiresIn: Int!
+  refreshToken: String!
+  token: String!
+}
+
+type RefundOrder {
+  success: Boolean
+}
+
+type RelationshipType {
+  """"""
+  id: ID!
+
+  """"""
+  name: String!
+
+  """"""
+  parent: [ParentType!]!
+
+  """"""
+  supporterParents: [ParentType!]!
+}
+
+type RemoveFcmToken {
+  success: Boolean
+}
+
+type RequestClaim {
+  success: Boolean
+}
+
+input ReturnDetailInputType {
+  id: Int
+  returnQuantity: Int
+}
+
+type ReturnDetailType {
+  color: String
+
+  """"""
+  csRequestReturn: ReturnType!
+
+  """"""
+  id: ID!
+
+  """"""
+  orderDetail: OrderDetailNode!
+
+  """"""
+  priceWork: Int!
+  productMasterName: String
+
+  """"""
+  returnPrice: Int
+
+  """"""
+  returnQuantity: Int
+  size: String
+}
+
+type ReturnInfoType {
+  address: String
+  detailAddress: String
+  orderDetails: [CsOrderDetailType]
+  phone: String
+  receiver: String
+  zipCode: String
+}
+
+type ReturnType {
+  """"""
+  address: String
+
+  """"""
+  afterSmarterMoney: Int
+
+  """"""
+  csRequest: CsRequestType
+  csRequestNumber: String
+
+  """"""
+  currentSmarterMoney: Int
+  currentUserSmarterMoney: Int
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  deliveryPrice: Int
+
+  """"""
+  detailAddress: String
+  gymName: String
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeliveryPriceExempt: Boolean
+
+  """"""
+  memo: String
+  orderNumber: String
+
+  """"""
+  phone: String
+
+  """"""
+  receiver: String
+  returnDetails: [ReturnDetailType]
+  returnProductsName: String
+
+  """"""
+  returnReason: String
+
+  """"""
+  state: String!
+  totalDetailCount: Int
+
+  """"""
+  totalProductsPrice: Int
+
+  """"""
+  totalReturnPrice: Int
+
+  """"""
+  user: UserNode
+  userId: Int
+
+  """"""
+  zipCode: String
+}
+
+type ReturnsType {
+  returnRequests: [ReturnType]
+  totalCount: Int
+}
+
+type SaveInventoryOrder {
+  success: Boolean
+}
+
+type SaveMemo {
+  success: Boolean
+}
+
+type ScheduleForParentType {
+  absentStr: String
+  attendanceOutStr: String
+  attendanceStr: String
+  auditionDetailStr: String
+  otherClassOutStr: String
+  otherClassStr: String
+}
+
+type SchoolType {
+  """"""
+  id: ID!
+
+  """"""
+  name: String!
+
+  """"""
+  students: [StudentType!]!
+}
+
+type SelectAddress {
+  selectedAddress: AddressType
+  success: Boolean
+}
+
+type SendClassPaymentAlarm {
+  success: Boolean
+}
+
+type SendCode {
+  message: String
+  success: Boolean
+}
+
+type SendNotificationAlarmAgain {
+  success: Boolean
+}
+
+type SetFcmToken {
+  success: Boolean
+}
+
+type SetPassword {
+  message: String
+  success: Boolean
+}
+
+type SmarterMoneyHistoriesType {
+  smarterMoneyHistories: [SmarterMoneyHistoryType]
+  totalCount: Int
+}
+
+type SmarterMoneyHistoryNode implements Node {
+  """"""
+  amount: Int!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  description: String!
+
+  """"""
+  historyNumber: String!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  orderMaster: OrderMasterNode
+
+  """"""
+  orderNumber: String
+
+  """"""
+  transactionType: String!
+
+  """"""
+  wallet: WalletType!
+}
+
+type SmarterMoneyHistoryNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [SmarterMoneyHistoryNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+}
+
+"""A Relay edge containing a `SmarterMoneyHistoryNode` and its cursor."""
+type SmarterMoneyHistoryNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: SmarterMoneyHistoryNode
+}
+
+type SmarterMoneyHistoryType {
+  """"""
+  amount: Int!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  description: String!
+
+  """"""
+  historyNumber: String!
+
+  """"""
+  id: ID!
+
+  """"""
+  orderMaster: OrderMasterNode
+  orderNumber: String
+
+  """"""
+  transactionType: String!
+
+  """"""
+  wallet: WalletType!
+}
+
+type StartInventoryOrder {
+  success: Boolean
+}
+
+type StartShipping {
+  success: Boolean
+}
+
+type StudentAttendance {
+  success: Boolean
+}
+
+type StudentConnection {
+  """Contains the nodes in this connection."""
+  edges: [StudentEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+}
+
+"""A Relay edge containing a `Student` and its cursor."""
+type StudentEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: StudentType
+}
+
+input StudentInputType {
+  birthday: Date
+  classDateStart: Date
+  className: String
+  dateEntered: Date
+  dayToPay: Int
+  gender: String
+  height: Float
+  id: Int
+  levelName: String
+  memo: String
+  memoForHealth: String
+  memoForPrice: String
+  name: String
+  phone: String
+  priceToPay: Int
+  schoolName: String
+  status: String
+  weight: Float
+}
+
+type StudentNode implements Node {
+  """"""
+  absentRequests: [AbsentRequestType!]!
+
+  """"""
+  attendanceDetails: [AttendanceDetailType!]!
+
+  """"""
+  auditionDetails: [AuditionDetailType!]!
+
+  """"""
+  birthday: Date!
+
+  """"""
+  classDateStart: Date
+
+  """"""
+  classMaster: ClassMasterType!
+
+  """"""
+  classPaymentMasters(after: String, before: String, classMaster_Name: String, first: Int, isApproved: Boolean, last: Int, offset: Int, paymentStatus: String, type: String): ClassPaymentMasterNodeConnection!
+
+  """"""
+  dateEntered: Date!
+
+  """"""
+  dateExit: Date
+
+  """"""
+  dayToPay: Int!
+
+  """"""
+  gender: String!
+
+  """"""
+  height: Float
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  level: LevelType!
+
+  """"""
+  memo: String
+
+  """"""
+  memoForHealth: String
+
+  """"""
+  memoForPrice: String
+
+  """"""
+  name: String!
+
+  """"""
+  parent: ParentType!
+
+  """"""
+  phone: String!
+
+  """"""
+  priceToPay: Int
+
+  """"""
+  school: SchoolType!
+
+  """"""
+  status: String!
+  studentId: Int
+
+  """"""
+  weight: Float
+}
+
+type StudentNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [StudentNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `StudentNode` and its cursor."""
+type StudentNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: StudentNode
+}
+
+type StudentStatisticType {
+  month: Int
+  newStudent: Int
+  outStudent: Int
+  totalStudent: Int
+}
+
+type StudentType {
+  """"""
+  absentRequests: [AbsentRequestType!]!
+
+  """"""
+  attendanceDetails: [AttendanceDetailType!]!
+
+  """"""
+  auditionDetails: [AuditionDetailType!]!
+
+  """"""
+  birthday: Date!
+
+  """"""
+  classDateStart: Date
+
+  """"""
+  classMaster: ClassMasterType!
+
+  """"""
+  classPaymentMasters(after: String, before: String, classMaster_Name: String, first: Int, isApproved: Boolean, last: Int, offset: Int, paymentStatus: String, type: String): ClassPaymentMasterNodeConnection!
+
+  """"""
+  dateEntered: Date!
+
+  """"""
+  dateExit: Date
+
+  """"""
+  dayToPay: Int!
+
+  """"""
+  gender: String!
+
+  """"""
+  height: Float
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  level: LevelType!
+
+  """"""
+  memo: String
+
+  """"""
+  memoForHealth: String
+
+  """"""
+  memoForPrice: String
+
+  """"""
+  name: String!
+
+  """"""
+  parent: ParentType!
+
+  """"""
+  phone: String!
+
+  """"""
+  priceToPay: Int
+
+  """"""
+  school: SchoolType!
+
+  """"""
+  status: String!
+  studentId: Int
+
+  """"""
+  weight: Float
+}
+
+type SubcontractorCalculateNode implements Node {
+  calculationId: Int
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateFrom: DateTime!
+
+  """"""
+  dateTo: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  state: String!
+
+  """"""
+  subcontractor: SubcontractorNode!
+
+  """"""
+  totalPriceWork: Int!
+
+  """"""
+  totalPriceWorkLabor: Int!
+
+  """"""
+  workAmount: Int!
+}
+
+type SubcontractorCalculateNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [SubcontractorCalculateNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalPriceWork: Int
+  totalPriceWorkLabor: Int
+  totalWorkAmount: Int
+}
+
+"""A Relay edge containing a `SubcontractorCalculateNode` and its cursor."""
+type SubcontractorCalculateNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: SubcontractorCalculateNode
+}
+
+input SubcontractorInputType {
+  address: String
+  businessRegistrationCertificate: Upload
+  businessRegistrationNumber: String
+  detailAddress: String
+  id: Int
+  name: String!
+  user: UserInputType
+  zipCode: String
+}
+
+type SubcontractorNode implements Node {
+  """"""
+  address: String
+
+  """"""
+  businessRegistrationCertificate: String
+
+  """"""
+  businessRegistrationNumber: String
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  detailAddress: String
+
+  """"""
+  email: String
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  isOutWorking: Boolean!
+
+  """"""
+  isPreWorking: Boolean!
+
+  """"""
+  memo: String
+
+  """"""
+  name: String!
+
+  """"""
+  subcontractorCalculate(after: String, before: String, dateFrom_Gte: DateTime, dateTo_Lte: DateTime, first: Int, last: Int, offset: Int, subcontractor_IsOutWorking: Boolean, subcontractor_IsPreWorking: Boolean, subcontractor_Name: String): SubcontractorCalculateNodeConnection!
+  subcontractorId: Int
+
+  """"""
+  user: UserNode
+
+  """"""
+  works(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, details_State_In: [String], first: Int, last: Int, offset: Int, state: String, subcontractor_IsOutWorking: Boolean, subcontractor_Name: String, subcontractor_Name_Icontains: String): WorkNodeConnection!
+
+  """"""
+  zipCode: String
+}
+
+type SubcontractorNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [SubcontractorNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `SubcontractorNode` and its cursor."""
+type SubcontractorNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: SubcontractorNode
+}
+
+type SubcontractorStatisticsConnection {
+  """Contains the nodes in this connection."""
+  edges: [SubcontractorStatisticsEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+}
+
+"""A Relay edge containing a `SubcontractorStatistics` and its cursor."""
+type SubcontractorStatisticsEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: SubcontractorStatisticsType
+  other: String
+}
+
+type SubcontractorStatisticsType implements Node {
+  dateFrom: String
+  dateTo: String
+
+  """The ID of the object."""
+  id: ID!
+  subcontractorName: String
+  totalPriceWork: Int
+  totalPriceWorkLabor: Int
+  workAmount: Int
+}
+
+type SubcontractorType {
+  """"""
+  address: String
+
+  """"""
+  businessRegistrationCertificate: String
+
+  """"""
+  businessRegistrationNumber: String
+  dailyCumulativeWork: Int
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  detailAddress: String
+
+  """"""
+  email: String
+
+  """"""
+  id: ID!
+
+  """"""
+  isOutWorking: Boolean!
+
+  """"""
+  isPreWorking: Boolean!
+
+  """"""
+  memo: String
+
+  """"""
+  name: String!
+
+  """"""
+  subcontractorCalculate(after: String, before: String, dateFrom_Gte: DateTime, dateTo_Lte: DateTime, first: Int, last: Int, offset: Int, subcontractor_IsOutWorking: Boolean, subcontractor_IsPreWorking: Boolean, subcontractor_Name: String): SubcontractorCalculateNodeConnection!
+
+  """"""
+  user: UserNode
+
+  """"""
+  works(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, details_State_In: [String], first: Int, last: Int, offset: Int, state: String, subcontractor_IsOutWorking: Boolean, subcontractor_Name: String, subcontractor_Name_Icontains: String): WorkNodeConnection!
+
+  """"""
+  zipCode: String
+}
+
+input SupplierInputType {
+  address: String
+  businessRegistrationCertificate: Upload
+  businessRegistrationNumber: String
+  email: String
+  fax: String
+  id: Int
+  manager: String
+  name: String
+  phone: String
+}
+
+type SupplierType {
+  """"""
+  address: String
+  businessRegistrationCertificate: String
+
+  """"""
+  businessRegistrationNumber: String
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  detailAddress: String
+
+  """"""
+  email: String
+
+  """"""
+  fax: String
+
+  """"""
+  id: ID!
+
+  """"""
+  inventoryordermasterSet(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String, state_In: [String]): InventoryOrderMasterNodeConnection!
+
+  """"""
+  manager: String
+
+  """"""
+  memo: String
+
+  """"""
+  name: String!
+
+  """"""
+  phone: String
+
+  """"""
+  products(after: String, before: String, brand_Name: String, category_Name: String, first: Int, last: Int, name_Icontains: String, offset: Int, orderdetail_OrderMaster_UserId: ID, state: String, subCategory_Name: String): ProductMasterNodeConnection!
+
+  """"""
+  zipCode: String
+}
+
+input TaOrderDetailInputType {
+  id: Int
+  priceSpecial: Int
+}
+
+type TaOrderDetailType {
+  color: String
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  orderDetail: OrderDetailNode!
+  priceGym: Int
+
+  """"""
+  priceSpecial: Int
+  priceWork: Int
+  productImage: String
+  productName: String
+  quantity: Int
+  size: String
+
+  """"""
+  taOrderMaster: TaOrderMasterType!
+
+  """"""
+  totalPriceSpecial: Int
+}
+
+type TaOrderMasterType {
+  address: String
+
+  """"""
+  dateOrdered: DateTime!
+  detailAddress: String
+
+  """"""
+  gymName: String
+
+  """"""
+  id: ID!
+
+  """"""
+  isDeleted: Boolean!
+
+  """"""
+  isPaid: Boolean!
+  isPickUp: Boolean
+
+  """"""
+  orderMaster: OrderMasterNode!
+
+  """"""
+  orderNumber: String
+  ordererName: String
+  phone: String
+
+  """"""
+  priceDelivery: Int!
+
+  """"""
+  pricePaid: Int!
+
+  """"""
+  priceToBePaid: Int!
+  receiver: String
+
+  """"""
+  state: String!
+  taName: String
+  taOrderDetails: [TaOrderDetailType]
+  totalCount: Int
+  totalPriceGym: Int
+  totalPriceSpecial: Int
+  zipCode: String
+}
+
+type TaOrderMastersType {
+  taOrderMasters: [TaOrderMasterType]
+  totalCount: Int
+}
+
+type Test {
+  success: Boolean
+}
+
+type TestNumber {
+  number: String
+}
+
+type ToggleActive {
+  success: Boolean
+}
+
+type UpdateAddress {
+  addresses: [AddressType]
+  success: Boolean
+}
+
+type UpdateBrand {
+  brands: [BrandType]
+  productExists: Boolean
+}
+
+type UpdateCategory {
+  categories: [CategoryType]
+  productExists: Boolean
+}
+
+type UpdateChangeRequest {
+  message: String
+  success: Boolean
+}
+
+type UpdateClassPaymentMaster {
+  success: Boolean
+}
+
+type UpdateContentReply {
+  reply: CsRequestContentType
+  success: Boolean
+}
+
+type UpdateCsRequest {
+  success: Boolean
+}
+
+type UpdateCsRequestContents {
+  csRequestContents: CsRequestContentType
+  success: Boolean
+}
+
+type UpdateCsRequestState {
+  success: Boolean
+}
+
+type UpdateDraftImage {
+  success: Boolean
+}
+
+type UpdateDrafts {
+  success: Boolean
+}
+
+type UpdateExtraPriceDelivery {
+  success: Boolean
+}
+
+type UpdateGym {
+  success: Boolean
+}
+
+type UpdateGymMemo {
+  message: String
+  success: Boolean
+}
+
+type UpdateGymNotification {
+  success: Boolean
+}
+
+type UpdateInventoryOrder {
+  success: Boolean
+}
+
+type UpdateMembership {
+  success: Boolean
+}
+
+type UpdateMemo {
+  success: Boolean
+}
+
+type UpdateNewDraft {
+  success: Boolean
+}
+
+type UpdateNewMemberCoupon {
+  couponMaster: CouponMasterType
+  success: Boolean
+}
+
+type UpdateParent {
+  success: Boolean
+}
+
+type UpdateProductMasterMemo {
+  success: Boolean
+}
+
+type UpdateReferralCoupon {
+  couponMaster: CouponMasterType
+  success: Boolean
+}
+
+type UpdateReturn {
+  message: String
+  success: Boolean
+}
+
+type UpdateStudents {
+  success: Boolean
+}
+
+type UpdateSupplier {
+  supplier: SupplierType
+}
+
+type UpdateTaOrder {
+  message: String
+  success: Boolean
+}
+
+type UpdateUserInfo {
+  success: Boolean
+}
+
+type UpdateWork {
+  success: Boolean
+}
+
+type UpdateWorkMemos {
+  success: Boolean
+}
+
+"""
+Create scalar that ignores normal serialization/deserialization, since
+that will be handled by the multipart request spec
+"""
+scalar Upload
+
+type UploadProfileImage {
+  success: Boolean
+}
+
+type UsedCouponsType {
+  totalCount: Int
+  usedCouponsHistories: [CouponUseHistoryType]
+}
+
+type UserCancelOrder {
+  message: String!
+  success: Boolean!
+}
+
+input UserInputType {
+  fcmToken: String
+  id: Int
+  identification: String
+  isActive: Boolean
+  isAdmin: Boolean
+  name: String
+  password: String
+  phone: String
+}
+
+type UserNode implements Node {
+  """"""
+  addresses: [AddressType!]!
+  agency: AgencyNode
+
+  """"""
+  changes: [ChangeRequestType!]!
+
+  """"""
+  chargeRequests(after: String, before: String, first: Int, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String, user_Name_Icontains: String): ChargeOrderNodeConnection!
+
+  """"""
+  claims: [ClaimType!]!
+
+  """"""
+  codeForPassword: Int
+
+  """"""
+  codeLimitTime: DateTime
+
+  """"""
+  coupons: [CouponType!]!
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  draftRequests(after: String, before: String, first: Int, last: Int, offset: Int, state: String): DraftRequestNodeConnection!
+
+  """"""
+  drafts: [DraftType!]!
+
+  """"""
+  easyorderSet(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String, user_Phone_Icontains: String): EasyOrderNodeConnection!
+
+  """"""
+  faqs(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, isActive: Boolean, last: Int, offset: Int): FaqNodeConnection!
+
+  """"""
+  fcmToken: String
+
+  """"""
+  fcmTokens: [String!]!
+  group: String
+  gym: GymType
+  gymNode: GymNode
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  identification: String!
+
+  """"""
+  isActive: Boolean!
+
+  """"""
+  isAdmin: Boolean!
+
+  """"""
+  isParticipatedEvent: Boolean!
+
+  """"""
+  isStaff: Boolean!
+
+  """"""
+  isSuperuser: Boolean!
+
+  """"""
+  lastLogin: DateTime
+
+  """"""
+  name: String!
+
+  """"""
+  newDrafts: [NewDraftType!]!
+
+  """"""
+  notice(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, isActive: Boolean, last: Int, offset: Int): NoticeNodeConnection!
+
+  """"""
+  notifications(after: String, before: String, dateCreated: DateTime, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, notificationType_In: [String], offset: Int, user_Groups_Name_Icontains: String, user_Id: Float): NotificationNodeConnection!
+
+  """"""
+  orders(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, id: Float, last: Int, offset: Int, user_Gym_Name_Icontains: String): OrderMasterNodeConnection!
+  parent: ParentType
+
+  """"""
+  password: String!
+
+  """"""
+  phone: String!
+  profileImage: String
+
+  """"""
+  refundAccountBank: String
+
+  """"""
+  refundAccountNo: String
+
+  """"""
+  refundAccountOwner: String
+
+  """"""
+  returns: [ReturnType!]!
+  subcontractor: SubcontractorNode
+  userId: Int
+  wallet: WalletType
+}
+
+type UserNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [UserNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `UserNode` and its cursor."""
+type UserNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: UserNode
+}
+
+type UserType {
+  """"""
+  addresses: [AddressType!]!
+  agencies: [AgencyType]
+  agency: AgencyNode
+
+  """"""
+  changes: [ChangeRequestType!]!
+
+  """"""
+  chargeRequests(after: String, before: String, first: Int, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String, user_Name_Icontains: String): ChargeOrderNodeConnection!
+
+  """"""
+  claims: [ClaimType!]!
+
+  """"""
+  codeForPassword: Int
+
+  """"""
+  codeLimitTime: DateTime
+  coupons: [CouponType]
+
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateUpdated: DateTime!
+
+  """"""
+  draftRequests(after: String, before: String, first: Int, last: Int, offset: Int, state: String): DraftRequestNodeConnection!
+
+  """"""
+  drafts: [DraftType!]!
+
+  """"""
+  easyorderSet(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, offset: Int, state: String, user_Gym_Name_Icontains: String, user_Phone_Icontains: String): EasyOrderNodeConnection!
+
+  """"""
+  faqs(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, isActive: Boolean, last: Int, offset: Int): FaqNodeConnection!
+
+  """"""
+  fcmToken: String
+
+  """"""
+  fcmTokens: [String!]!
+  group: String
+  gym: GymType
+
+  """"""
+  id: ID!
+
+  """"""
+  identification: String!
+
+  """"""
+  isActive: Boolean!
+
+  """"""
+  isAdmin: Boolean!
+
+  """"""
+  isParticipatedEvent: Boolean!
+
+  """"""
+  isStaff: Boolean!
+
+  """"""
+  isSuperuser: Boolean!
+
+  """"""
+  lastLogin: DateTime
+
+  """"""
+  name: String!
+
+  """"""
+  newDrafts: [NewDraftType!]!
+
+  """"""
+  notice(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, isActive: Boolean, last: Int, offset: Int): NoticeNodeConnection!
+
+  """"""
+  notifications(after: String, before: String, dateCreated: DateTime, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, last: Int, notificationType_In: [String], offset: Int, user_Groups_Name_Icontains: String, user_Id: Float): NotificationNodeConnection!
+
+  """"""
+  orders(after: String, before: String, dateCreated_Gte: DateTime, dateCreated_Lte: DateTime, first: Int, id: Float, last: Int, offset: Int, user_Gym_Name_Icontains: String): OrderMasterNodeConnection!
+  parent: ParentType
+
+  """"""
+  password: String!
+
+  """"""
+  phone: String!
+  profileImage: String
+
+  """"""
+  refundAccountBank: String
+
+  """"""
+  refundAccountNo: String
+
+  """"""
+  refundAccountOwner: String
+
+  """"""
+  returns: [ReturnType!]!
+  subcontractor: SubcontractorNode
+  subcontractors: [SubcontractorType]
+  wallet: WalletType
+}
+
+type VerifyToken {
+  isActive: Boolean
+  payload: GenericScalar!
+  user: UserType
+}
+
+type WalletType {
+  accumulativeAmount: Int
+
+  """"""
+  balance: Int!
+  gymName: String
+
+  """"""
+  history(after: String, before: String, first: Int, last: Int, offset: Int, walletId: ID): SmarterMoneyHistoryNodeConnection!
+
+  """"""
+  id: ID!
+  identification: String
+  phone: String
+  totalChargeAmount: Int
+  totalUsedAmount: Int
+
+  """"""
+  user: UserNode!
+}
+
+"""sort_type: ["보유잔액순", "가나다순"]"""
+type WalletsType {
+  totalCount: Int
+  wallets: [WalletType]
+}
+
+type Withdraw {
+  success: Boolean
+}
+
+input WorkInputType {
+  beltCenterLetter: String
+  beltLeftLetter: String
+  beltRightLetter: String
+  draftImage: Upload
+  id: Int
+  state: String
+}
+
+type WorkNode implements Node {
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateFinished: DateTime
+  details: [OrderDetailType]
+  drafts: [NewDraftType]
+
+  """The ID of the object."""
+  id: ID!
+
+  """"""
+  memoByAdmin: String
+
+  """"""
+  memoByPreWorker: String
+
+  """"""
+  memoBySubcontractor: String
+
+  """"""
+  orderMaster: OrderMasterNode!
+  productNames: [String]
+
+  """"""
+  state: String!
+
+  """"""
+  subcontractor: SubcontractorNode
+  workId: Int
+}
+
+type WorkNodeConnection {
+  """Contains the nodes in this connection."""
+  edges: [WorkNodeEdge]!
+
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+  totalCount: Int
+  totalUnreadCount: Int
+}
+
+"""A Relay edge containing a `WorkNode` and its cursor."""
+type WorkNodeEdge {
+  """A cursor for use in pagination"""
+  cursor: String!
+
+  """The item at the end of the edge"""
+  node: WorkNode
+}
+
+type WorkType {
+  """"""
+  dateCreated: DateTime!
+
+  """"""
+  dateFinished: DateTime
+  details: [OrderDetailType]
+
+  """"""
+  id: ID!
+
+  """"""
+  memoByAdmin: String
+
+  """"""
+  memoByPreWorker: String
+
+  """"""
+  memoBySubcontractor: String
+
+  """"""
+  orderMaster: OrderMasterNode!
+
+  """"""
+  state: String!
+
+  """"""
+  subcontractor: SubcontractorNode
+}
+
+type WrongDelivery {
+  message: String
+  success: Boolean
+}

@@ -1,0 +1,31 @@
+mutation DeleteAddress($addressId: Int!){
+    deleteAddress(addressId: $addressId){
+        success
+        message
+    }
+}
+
+mutation VerifyToken($token: String $fcmToken: String){
+    verifyToken(token: $token fcmToken: $fcmToken){
+        isActive
+        user {
+            id
+            identification
+            name
+            phone
+            gym {
+                name
+                address
+                detailAddress
+                zipCode
+                email
+                businessRegistrationNumber
+                businessRegistrationCertificate
+                agency{
+                    name
+                }
+            }
+        }
+    }
+}
+

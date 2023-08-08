@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>656368733718-dtdgnkrgfdbci3upb3r2ed11s4s5bn1k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.656368733718-dtdgnkrgfdbci3upb3r2ed11s4s5bn1k</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCnC4Yog9nIQedaUAe9lal0HCNeeKixeSM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>656368733718</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.blocket.smarter</string>
+	<key>PROJECT_ID</key>
+	<string>k-smarter</string>
+	<key>STORAGE_BUCKET</key>
+	<string>k-smarter.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:656368733718:ios:1acba17ecca2f8b31d2f37</string>
+</dict>
+</plist>

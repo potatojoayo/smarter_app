@@ -1,0 +1,138 @@
+name: smarter
+description: Smarter shopping mall.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+version: 4.0.3+73
+# version: 3.0.1+70
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  artemis:
+  flutter_localizations:
+    sdk: flutter
+  firebase_core: ^1.21.0
+  kakao_flutter_sdk_talk: ^1.2.2 # 카카오톡(소셜, 메시지)
+  firebase_messaging: ^13.1.0
+  google_fonts: ^4.0.3
+  get: ^4.6.5
+  dots_indicator: ^2.1.0
+  font_awesome_flutter: ^10.2.1
+  graphql_flutter: ^5.1.0
+  flutter_dotenv: ^5.0.2
+  mask_text_input_formatter: ^2.4.0
+  intl: ^0.18.0
+  skeletons: ^0.0.3
+  badges: ^2.0.3
+  carousel_slider: ^4.1.1
+  timeago: ^3.3.0
+  image_picker: ^0.8.5+3
+  url_launcher: ^6.1.6
+  flutter_spinkit: ^5.1.0
+  currency_text_input_formatter: ^2.1.7
+  webview_flutter: ^3.0.4
+  flutter_app_badger: ^1.5.0
+  dio: ^4.0.6
+  flutter_sticky_header: ^0.6.4
+  photo_view: ^0.14.0
+  file_picker: ^5.2.2
+  new_version_plus:
+  flutter_time_picker_spinner: ^2.0.0
+  dropdown_button2: ^1.9.1
+  autocomplete_textfield: ^2.0.1
+  flutter_typeahead: ^4.1.1
+  table_calendar: ^3.0.8
+  flutter_notification_channel: ^2.0.0
+  flutter_native_splash: ^2.2.16
+  rounded_loading_button: ^2.1.0
+
+  back_button_interceptor: ^6.0.2
+  collection: ^1.17.0
+  http: ^0.13.6
+  html: ^0.15.2
+  package_info_plus: ^3.0.3
+  audioplayers: ^3.0.1
+  assets_audio_player: ^3.0.6
+  flutter_overlay_loader: ^2.0.0
+  overlay_loading_progress: ^1.0.1
+  yaml: ^3.1.1
+  getwidget: ^3.1.1
+  multilevel_drawer: ^2.0.0
+  json_annotation: ^4.8.1
+  equatable:
+  gql: '>=0.12.3 <1.0.0'
+  mixpanel_flutter: ^2.1.1
+  flutter_datetime_picker_plus: ^2.0.1
+
+
+dependency_overrides:
+  font_awesome_flutter:
+    path: font_awesome_flutter
+  firebase_core_platform_interface: 4.5.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.10.0
+  build_runner: ^2.1.7
+  artemis: ^7.1.0-beta.0
+  freezed:
+  json_serializable: ^6.7.1
+
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env
+    - assets/
+    - assets/icon/
+    - assets/icon/category/
+    #    - assets/icon/students_1.png
+    - assets/sound/
+    - assets/sound/sound_alarm.mp3
+    - assets/sound/sound_attendance.mp3
+    - pubspec.yaml
+
+
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/icon.png"
+  min_sdk_android: 17
+
+flutter_native_splash:
+  color: "#ffffff"
+
+  android_12:
+    icon_background_color: "#ffffff"
+
+  web: false
+
+
+fonts:
+  - family: Pretendard
+    fonts:
+      - asset: assets/fonts/Pretendard-Thin.otf
+        weight: 100
+      - asset: assets/fonts/Pretendard-ExtraLight.otf
+        weight: 200
+      - asset: assets/fonts/Pretendard-Light.otf
+        weight: 300
+      - asset: assets/fonts/Pretendard-Regular.otf
+        weight: 400
+      - asset: assets/fonts/Pretendard-Medium.otf
+        weight: 500
+      - asset: assets/fonts/Pretendard-SemiBold.otf
+        weight: 600
+      - asset: assets/fonts/Pretendard-Bold.otf
+        weight: 700
+      - asset: assets/fonts/Pretendard-ExtraBold.otf
+        weight: 800
+      - asset: assets/fonts/Pretendard-Black.otf
+        weight: 900

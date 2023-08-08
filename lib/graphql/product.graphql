@@ -1,0 +1,22 @@
+query MyAddressesAndProductMaster($productMasterId: Int) {
+    productMaster(id: $productMasterId){
+        sizes
+        colors
+        products{
+            productId
+            priceAdditional
+            color
+            size
+        }
+    }
+    myAddresses {
+        id
+        name
+        receiver
+        phone
+        zipCode
+        address
+        detailAddress
+        default
+    }
+}

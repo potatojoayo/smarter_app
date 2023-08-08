@@ -1,0 +1,152 @@
+query OrderMasterAndAddresses($orderMasterId: Int!){
+    myAddresses {
+        id
+        name
+        receiver
+        phone
+        zipCode
+        address
+        detailAddress
+        default
+    }
+    didUseCouponToday
+    myCoupons{
+        id
+        couponMaster{
+            name
+        }
+        price
+        startOfUse
+        endOfUse
+        dateUsed
+    }
+    orderMaster(orderMasterId: $orderMasterId){
+        id
+        orderNumber
+        priceDelivery
+        priceTotalProducts
+        priceToPay
+        orderName
+        receiver
+        address
+        detailAddress
+        zipCode
+        phone
+        details{
+            state
+            product{
+                color
+                size
+                productMaster{
+                    name
+                    thumbnail
+                    brand{
+                        name
+                    }
+                    category{
+                        name
+                    }
+                    subCategory{
+                        name
+                    }
+                }
+                name
+            }
+            quantity
+            priceTotal
+            priceProducts
+            priceWork
+            priceWorkLabor
+            priceOption
+        }
+    }
+}
+
+query MyCoupons{
+    myCoupons{
+        id
+        couponMaster{
+            name
+        }
+        price
+        startOfUse
+        endOfUse
+        dateUsed
+    }
+}
+
+mutation OrderBySmarterMoney(
+    $orderMasterId: Int!
+    $receiver: String!,
+    $phone: String!,
+    $zipCode: String!,
+    $address: String!,
+    $detailAddress: String,
+    $deliveryRequest: String,
+    $smarterMoney: Int!
+    $couponId: Int
+){
+    orderBySmarterMoney(
+        orderMasterId: $orderMasterId,
+        receiver: $receiver,
+        phone: $phone,
+        zipCode: $zipCode,
+        address: $address,
+        detailAddress: $detailAddress,
+        smarterMoney: $smarterMoney,
+        deliveryRequest: $deliveryRequest,
+
+        couponId: $couponId
+    ) {
+        success
+
+        orderMaster{
+            id
+        }
+    }
+}
+
+mutation CancelOrder($orderMasterId: Int! ){
+    userCancelOrder(orderMasterId: $orderMasterId){
+        success
+        message
+    }
+}
+
+mutation CreateUserReturnRequest($orderDetailId: Int! $quantity: Int! $returnReason: String $receiver: String $phone: String $zipCode: String $address: String $detailAddress: String){
+    createUserReturnRequest(
+        address: $address orderDetailId: $orderDetailId quantity: $quantity detailAddress: $detailAddress phone: $phone zipCode: $zipCode receiver: $receiver returnReason: $returnReason
+    ){
+        success
+        message
+    } }
+
+mutation CreateUserChangeRequest($orderDetailId: Int! $quantity: Int! $changeReason: String $pickUpReceiver: String $pickUpPhone: String $pickUpZipCode: String $pickUpAddress: String $pickUpDetailAddress: String
+    $deliveryReceiver: String $deliveryPhone: String $deliveryZipCode: String $deliveryAddress: String $deliveryDetailAddress: String $changingProductId: Int
+){
+    createUserChangeRequest(
+        orderDetailId: $orderDetailId changingQuantity: $quantity changeReason: $changeReason pickUpAddress: $pickUpAddress pickUpReceiver: $pickUpReceiver pickUpPhone: $pickUpPhone pickUpZipCode: $pickUpZipCode pickUpDetailAddress: $pickUpDetailAddress
+        deliveryAddress: $deliveryAddress deliveryReceiver: $deliveryReceiver deliveryPhone: $deliveryPhone deliveryZipCode: $deliveryZipCode deliveryDetailAddress: $deliveryDetailAddress
+        changingProductId: $changingProductId
+    ){
+        success
+        message
+    }
+}
+
+query ChangeDetailOfOrderDetail($orderDetailId: Int!){
+    changeDetailOfOrderDetail(orderDetailId: $orderDetailId){
+        changingQuantity
+        changingProduct {
+            color
+            size
+            priceAdditional
+        }
+    }
+}
+
+mutation ChangeOrderDelivery($addressId: Int $orderMasterId: Int){
+    changeOrderDelivery(addressId: $addressId orderMasterId: $orderMasterId){
+        success
+    }
+}

@@ -1,0 +1,49 @@
+const studentQuery = """
+  query Student(\$id: Int){
+    student(id: \$id){
+      name
+      birthday
+      gender
+      weight
+      height
+      phone
+      dayToPay
+      dateEntered
+      classDateStart
+      priceToPay
+      memo
+      memoForHealth
+      memoForPrice
+      school{
+        name
+      }
+      status
+      classMaster{
+        name
+      }
+      level{
+        name
+      }
+      parent{
+        id
+        user{
+          identification
+          name
+          phone
+        }
+        address
+        detailAddress
+        zipCode
+        relationship{
+          name
+        }
+        supporterName
+        supporterRelationship{
+          name
+        }
+        supporterPhone
+        
+      }
+    }
+  }
+""";

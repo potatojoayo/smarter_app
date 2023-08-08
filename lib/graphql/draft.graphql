@@ -1,0 +1,12 @@
+query MyDrafts($subCategoryName: String){
+    myDrafts(subCategoryName: $subCategoryName) {
+        id
+        categoryName
+        subCategoryName
+        image
+        printing
+        priceWork
+        font
+        threadColor
+    }
+}
